@@ -5,11 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nippun Sabharwal</title>
   <style>
-    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; line-height: 1.6; }
-    h1, h2 { color: #333; }
-    .timeline { border-left: 2px solid #aaa; padding-left: 20px; margin-top: 20px; }
-    .event { margin-bottom: 20px; }
-    .date { font-weight: bold; }
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #222;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .timeline {
+      border-left: 2px solid #aaa;
+      padding-left: 20px;
+      margin-top: 20px;
+    }
+    .event {
+      margin-bottom: 40px;
+    }
+    .date {
+      font-weight: bold;
+      color: #555;
+    }
+    a {
+      color: #0645AD;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
   </style>
 </head>
 <body>
@@ -19,22 +48,75 @@
   <h2>Work Timeline</h2>
   <div class="timeline">
     <div class="event">
-      <span class="date">2025</span> – Researching refractive water turbulence correction with physics-informed AI
+      <span class="date">2023</span> – <strong>DoorGuardian: Autonomous Security System</strong><br>
+      <em>Contributors: Nippun Sabharwal, Vayun Gupta, Siddarth Natarajan</em><br>
+      An open-source, low-power remote door-unlock prototype that replaces ID-cards with on-device face recognition and a chat-based interface.
+      <ul>
+        <li><strong>Challenge</strong>: Campus and home access rely on plastic cards or keys, creating delays, extra costs and accessibility hurdles.</li>
+        <li><strong>Solution</strong>: An ultrasonic sensor wakes an Arduino UNO and OV7670 camera when someone approaches. The image streams via UART → PC → Telegram bot. The owner sends “door open”/“door close” over Telegram, and an ESP32 toggles SG90 servos to lock or unlock.</li>
+        <li><strong>Tech Stack</strong>:
+          <ul>
+            <li><strong>Sensing & Power</strong>: HC-SR04 ultrasonic for 50 cm trigger & power-saving standby</li>
+            <li><strong>Imaging</strong>: OV7670 camera module over UART</li>
+            <li><strong>Control</strong>: Arduino UNO (coordination), ESP32 (Wi-Fi, Telegram API)</li>
+            <li><strong>Actuation</strong>: SG90 servo motors as the lock mechanism</li>
+            <li><strong>Integration</strong>: Telegram Bot via Make.com for workflow automation</li>
+          </ul>
+        </li>
+        <li><strong>Key Features</strong>: live video feed playback, automated entry/exit logs, easy face-database updates, upgradable firmware</li>
+        <li><strong>Real-World Use Cases</strong>: Airbnb hosts granting secure, keyless guest access; campus buildings offering ID-free entry; improved accessibility for users with disabilities</li>
+        <li><strong>Repository</strong>: <a href="https://github.com/nippun-sabharwal/remote-unlock" target="_blank">remote-unlock</a></li>
+      </ul>
     </div>
+
     <div class="event">
-      <span class="date">2024</span> – Built a RISC-V OS & custom Unix-style filesystem (KTFS)
+      <span class="date">2024</span> – <strong>Fully Functional 16-bit CPU Core & Verilog Autonomous Agent</strong><br>
+      <em>GitHub: <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank">svcpu</a></em>
+      <ul>
+        <li><strong>SLC-3 ISA in SystemVerilog</strong>: Implemented a 16-bit processor with 16-bit PC, IR, registers, ALU and a 3-stage fetch–decode–execute pipeline.</li>
+        <li><strong>Control Unit FSM</strong>: Built a state-machine sequencing memory access, ALU ops and I/O interactions via a `cpu_to_io` bridge.</li>
+        <li><strong>Memory-Mapped I/O & BRAM</strong>: Handled peripherals using on-chip Spartan-7 block RAM without an external "ready" signal.</li>
+        <li><strong>FPGA-Verified</strong>: Synthesized and verified on Spartan-7 board, operating stably at 50 MHz.</li>
+        <li><strong>Verilog Autonomous Agent</strong>: LLM-based system that generates, synthesizes, and verifies new RTL modules, reducing design iteration by 40%.</li>
+      </ul>
     </div>
+
     <div class="event">
-      <span class="date">2023</span> – Face unlock system using OpenCV and embedded Linux
+      <span class="date">2025</span> – <strong>Full RISC-V OS Kernel & KTFS Journaling Filesystem + Drivers</strong><br>
+      <em>GitHub: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank">ktfs</a></em>
+      <ul>
+        <li><strong>UNIX-style Kernel in C</strong>:
+          <ul>
+            <li>Bootloader, trap handling, Sv39 paging, process abstraction</li>
+            <li>User-mode syscalls: open/close/read/write/ioctl/exec/fork/wait/usleep/fscreate/fsdelete</li>
+          </ul>
+        </li>
+        <li><strong>KTFS Filesystem</strong>: Block-based with journaling, metadata crash recovery, supports indirection and multiple mount types.</li>
+        <li><strong>Drivers</strong>: UART, RTC, PLIC, VirtIO block & RNG, GPIO, SPI, servo control.</li>
+        <li><strong>Block Cache</strong>: Write-back with journaling consistency, configurable associativity.</li>
+        <li><strong>Threading</strong>: Preemptive/cooperative with mtime timer, context switching, idle thread.</li>
+        <li><strong>ELF Loader</strong>: Runs user ELF binaries like Star Trek game via I/O interface.</li>
+        <li><strong>Validation</strong>: Unit tests, gdb debugging, full integration on QEMU RISC-V.</li>
+      </ul>
     </div>
-    <!-- Add more -->
+
+    <div class="event">
+      <span class="date">2024</span> – <strong>VR-Based Robot Teleoperation Interface</strong><br>
+      <ul>
+        <li><strong>Head-driven control</strong>: Captured 6-DOF head-pose from Oculus at 60 Hz over ROS; mapped to robotic neck joints via imitation learning.</li>
+        <li><strong>Immersive 3D feedback</strong>: ZED Mini stereo RGBD camera into Unity, sub-60 ms latency stereo feed.</li>
+        <li><strong>Latency & smoothing</strong>: ROS filters + H.264/H.265 compression, achieving 45–60 ms round-trip delay.</li>
+        <li><strong>Modular pipeline</strong>: Unity–ROS–Dynamixel setup, extensible to other robot configurations.</li>
+        <li><strong>Demonstrated performance</strong>: ±0.5° joint accuracy across 3,000-mile network for folding and assembly tasks.</li>
+      </ul>
+    </div>
   </div>
 
   <h2>Links</h2>
   <ul>
-    <li><a href="https://github.com/nippun-live">GitHub</a></li>
-    <li><a href="mailto:your@email.com">Email Me</a></li>
-    <li><a href="https://linkedin.com/in/yourprofile">LinkedIn</a></li>
+    <li><a href="https://github.com/nippun-live" target="_blank">GitHub</a></li>
+    <li><a href="mailto:nippun@email.com">Email Me</a></li>
+    <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
   </ul>
 </body>
 </html>
