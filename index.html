@@ -49,66 +49,122 @@
   <h2>Work Timeline</h2>
   <div class="timeline">
     <div class="event">
-      <span class="date">2025</span> – <strong>Full RISC-V OS Kernel & KTFS Journaling Filesystem + Drivers</strong><br>
-      <em>GitHub: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank">ktfs</a></em>
-      <ul>
-        <li><strong>UNIX-style Kernel in C</strong>:
-          <ul>
-            <li>Bootloader, trap handling, Sv39 paging, process abstraction</li>
-            <li>User-mode syscalls: open/close/read/write/ioctl/exec/fork/wait/usleep/fscreate/fsdelete</li>
-          </ul>
-        </li>
-        <li><strong>KTFS Filesystem</strong>: Block-based with journaling, metadata crash recovery, supports indirection and multiple mount types.</li>
-        <li><strong>Drivers</strong>: UART, RTC, PLIC, VirtIO block & RNG, GPIO, SPI, servo control.</li>
-        <li><strong>Block Cache</strong>: Write-back with journaling consistency, configurable associativity.</li>
-        <li><strong>Threading</strong>: Preemptive/cooperative with mtime timer, context switching, idle thread.</li>
-        <li><strong>ELF Loader</strong>: Runs user ELF binaries like Star Trek game via I/O interface.</li>
-        <li><strong>Validation</strong>: Unit tests, gdb debugging, full integration on QEMU RISC-V.</li>
-      </ul>
+      <span class="date">In progress</span> – <strong>Multimodal Robotic World Model</strong><br>
+      Unified sensor+teleop AI model that accelerates robot skill learning and safe human-robot collaboration.
     </div>
 
     <div class="event">
-      
+      <strong>Physics-Based Dynamic Scene Recon.</strong><br>
+      Link: <a href="https://github.com/nippun-sabharwal/Fluid_Wave_Simulator" target="_blank">github.com/nippun-sabharwal/Fluid_Wave_Simulator</a><br>
+      Developing unsupervised, physics-informed deep learning frameworks for modeling atmospheric turbulence and fluid dynamics. Integrated convolutional encoders, optical-flow estimation, and digital-signal-processing filters (e.g., Fourier- and wavelet domain) with physical-optics simulations and 3D geometric scene reconstruction to accurately predict and correct refractive and flow-induced distortions in real-world imagery. Training on parallel supercomputing clusters.
+    </div>
+
+    <div class="event">
+      <span class="date">2024</span> – <strong>VR-Based Robot Teleoperation Interface</strong><br>
+      Link: <a href="https://youtu.be/zHB2BcJn3Ps" target="_blank">https://youtu.be/zHB2BcJn3Ps</a>
+      <ul>
+        <li><strong>Head-driven control</strong>: Captured 6-DOF head-pose at 60 Hz from an Oculus headset over ROS, converted to joint commands for a 2- to 3-DOF robotic neck mechanism, enabling smooth, intuitive motion via imitation learning</li>
+        <li><strong>Immersive 3D feedback</strong>: Integrated a ZED Mini stereo RGBD camera, streaming dual-view video into Unity with under 60 ms latency, giving operators natural depth perception for fine manipulation</li>
+        <li><strong>Latency management & motion smoothing</strong>: Applied ROS dampening filters and H.264/H.265 compression with 60 Hz command updates, achieving 45–60 ms round-trip delay and sub-degree motion accuracy</li>
+        <li><strong>Modular, extensible pipeline</strong>: Built a Unity–ROS–Dynamixel workflow with configurable DOF settings, easily adaptable to different robot platforms and future full-body telemanipulation</li>
+        <li><strong>Demonstrated performance</strong>: Executed remote folding and assembly tasks with ±0.5° accuracy in yaw and pitch over a 3,000-mile network, establishing a foundation for scalable imitation-learning data collection</li>
+      </ul>
       <div style="margin-top: 10px">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/zHB2BcJn3Ps?si=zE-716tN5lVhJgK4" 
-                title="VR-Based Robot Teleoperation Demo" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/zHB2BcJn3Ps?si=zE-716tN5lVhJgK4"
+                title="VR-Based Robot Teleoperation Demo" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
       </div>
     </div>
 
     <div class="event">
-      <span class="date">2024</span> – <strong>Fully Functional 16-bit CPU Core & Verilog Autonomous Agent</strong><br>
-      <em>GitHub: <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank">svcpu</a></em>
+      <span class="date">2025</span> – <strong>Full RISC-V OS Kernel & KTFS Journaling Filesystem + Drivers</strong><br>
+      GitHub: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank">github.com/nippun-sabharwal/ktfs</a>
       <ul>
-        <li><strong>SLC-3 ISA in SystemVerilog</strong>: Implemented a 16-bit processor with 16-bit PC, IR, registers, ALU and a 3-stage fetch–decode–execute pipeline.</li>
-        <li><strong>Control Unit FSM</strong>: Built a state-machine sequencing memory access, ALU ops and I/O interactions via a `cpu_to_io` bridge.</li>
-        <li><strong>Memory-Mapped I/O & BRAM</strong>: Handled peripherals using on-chip Spartan-7 block RAM without an external "ready" signal.</li>
-        <li><strong>FPGA-Verified</strong>: Synthesized and verified on Spartan-7 board, operating stably at 50 MHz.</li>
-        <li><strong>Verilog Autonomous Agent</strong>: LLM-based system that generates, synthesizes, and verifies new RTL modules, reducing design iteration by 40%.</li>
+        <li><strong>UNIX-style Kernel in C</strong>:
+          <ul>
+            <li>Bootloader, trap handling and Sv39 virtual memory with demand paging and process abstraction</li>
+            <li>User-mode syscalls: open/close/read/write/ioctl/exec/fork/wait/usleep/fscreate/fsdelete</li>
+          </ul>
+        </li>
+        <li><strong>KTFS Journaling Filesystem</strong>:
+          <ul>
+            <li>Block-based design with a write-ahead journal for metadata consistency and crash recovery</li>
+            <li>Supports create, read, write, delete, flush, and multi-level indirection</li>
+            <li>Mountable via VirtIO block device or in-memory “memio” for fast testing</li>
+          </ul>
+        </li>
+        <li><strong>Device Drivers & MMIO</strong>:
+          <ul>
+            <li>UART (polling & interrupt-driven), Real-Time Clock (RTC), Platform-Level Interrupt Controller (PLIC)</li>
+            <li>VirtIO block & VirtIO RNG devices, with custom ISR integration</li>
+            <li>GPIO, SPI and servo interfaces for embedded peripherals</li>
+          </ul>
+        </li>
+        <li><strong>Block Cache Layer</strong>:
+          <ul>
+            <li>Write-back cache with configurable associativity, reducing latency for filesystem and block I/O</li>
+            <li>Ensures data consistency with journaling mechanism</li>
+          </ul>
+        </li>
+        <li><strong>Threading & Interrupts</strong>:
+          <ul>
+            <li>Cooperative and preemptive threading using condition variables and timer (mtime) interrupts</li>
+            <li>Idle thread for power-efficient wait-for-interrupt behavior, context switching among user and kernel threads</li>
+          </ul>
+        </li>
+        <li><strong>ELF Loader & User Programs</strong>:
+          <ul>
+            <li>Unified I/O interface to load and run ELF binaries (e.g., Star Trek game) on QEMU RISC-V</li>
+            <li>Automated tests verify correct loading, execution, and system-call handling</li>
+          </ul>
+        </li>
+        <li><strong>Validation & Debugging</strong>:
+          <ul>
+            <li>Comprehensive unit tests for drivers, cache, filesystem, threading and syscalls</li>
+            <li>Debugged end-to-end on QEMU RISC-V with gdb, demonstrating robust OS functionality</li>
+          </ul>
+        </li>
       </ul>
     </div>
 
     <div class="event">
+      <span class="date">2024</span> – <strong>Fully Functional 16-bit CPU Core & Verilog Autonomous Agent</strong><br>
+      GitHub: <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank">github.com/nippun-sabharwal/svcpu</a>
+      <ul>
+        <li><strong>SLC-3 ISA in SystemVerilog</strong>: Implemented a 16-bit processor with 16-bit PC, IR, registers, ALU and a 3-stage fetch–decode–execute pipeline, supporting ADD, AND, NOT, BR, JMP, JSR, LDR, STR and PAUSE instructions.</li>
+        <li><strong>Control Unit FSM</strong>: Built a state-machine sequencing memory access, ALU ops and I/O interactions via a cpu_to_io bridge for on-board switches and hex displays.</li>
+        <li><strong>Memory-Mapped I/O & BRAM</strong>: Mapped UART, switches and seven-segment displays into address space using on-chip Spartan-7 block RAM, handling read/write timing without an external “ready” signal.</li>
+        <li><strong>FPGA-Verified</strong>: Synthesized and timing-closed the design in Vivado on a Xilinx Spartan-7 board, demonstrating stable operation at 50 MHz.</li>
+        <li><strong>Verilog Autonomous Agent</strong>: Developed an LLM-driven framework that generates, synthesizes and verifies new RTL modules, reducing manual hardware-design iterations by 40%.</li>
+      </ul>
+      This project showcases end-to-end expertise from ISA specification through FPGA implementation to AI-accelerated hardware development.
+    </div>
+
+    <div class="event">
       <span class="date">2023</span> – <strong>DoorGuardian: Autonomous Security System</strong><br>
+      Repository: <a href="https://github.com/nippun-sabharwal/remote-unlock" target="_blank">https://github.com/nippun-sabharwal/remote-unlock</a><br>
       <em>Contributors: Nippun Sabharwal, Vayun Gupta, Siddarth Natarajan</em>
       <ul>
-        <li>An open-source, low-power remote door-unlock prototype that replaces ID-cards with on-device face recognition and a chat-based interface.</li>
         <li><strong>Challenge</strong>: Campus and home access rely on plastic cards or keys, creating delays, extra costs and accessibility hurdles.</li>
         <li><strong>Solution</strong>: An ultrasonic sensor wakes an Arduino UNO and OV7670 camera when someone approaches. The image streams via UART → PC → Telegram bot. The owner sends “door open”/“door close” over Telegram, and an ESP32 toggles SG90 servos to lock or unlock.</li>
         <li><strong>Tech Stack</strong>:
           <ul>
-            <li><strong>Sensing & Power</strong>: HC-SR04 ultrasonic for 50 cm trigger & power-saving standby</li>
-            <li><strong>Imaging</strong>: OV7670 camera module over UART</li>
-            <li><strong>Control</strong>: Arduino UNO (coordination), ESP32 (Wi-Fi, Telegram API)</li>
-            <li><strong>Actuation</strong>: SG90 servo motors as the lock mechanism</li>
-            <li><strong>Integration</strong>: Telegram Bot via Make.com for workflow automation</li>
+            <li>Sensing & Power: HC-SR04 ultrasonic for 50 cm trigger & power-saving standby</li>
+            <li>Imaging: OV7670 camera module over UART</li>
+            <li>Control: Arduino UNO (coordination), ESP32 (Wi-Fi, Telegram API)</li>
+            <li>Actuation: SG90 servo motors as the lock mechanism</li>
+            <li>Integration: Telegram Bot via Make.com for workflow automation</li>
           </ul>
         </li>
         <li><strong>Key Features</strong>: live video feed playback, automated entry/exit logs, easy face-database updates, upgradable firmware</li>
         <li><strong>Real-World Use Cases</strong>: Airbnb hosts granting secure, keyless guest access; campus buildings offering ID-free entry; improved accessibility for users with disabilities</li>
-        <li><strong>Repository</strong>: <a href="https://github.com/nippun-sabharwal/remote-unlock" target="_blank">remote-unlock</a></li>
       </ul>
+    </div>
+
+    <div class="event">
+      <strong>PotterMost Platform</strong><br>
+      Grew a Harry Potter fan community to 12 500+ users and 4 000 social followers; led 30 volunteers to build quizzes & discussions.
     </div>
   </div>
 
