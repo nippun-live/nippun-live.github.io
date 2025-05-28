@@ -36,8 +36,9 @@
       text-decoration: underline;
     }
     ul {
-      list-style-type: none;
-      padding: 0;
+      list-style-type: disc;
+      margin-left: 20px;
+      padding-left: 20px;
     }
   </style>
 </head>
@@ -47,40 +48,6 @@
 
   <h2>Work Timeline</h2>
   <div class="timeline">
-    <div class="event">
-      <span class="date">2023</span> – <strong>DoorGuardian: Autonomous Security System</strong><br>
-      <em>Contributors: Nippun Sabharwal, Vayun Gupta, Siddarth Natarajan</em><br>
-      An open-source, low-power remote door-unlock prototype that replaces ID-cards with on-device face recognition and a chat-based interface.
-      <ul>
-        <li><strong>Challenge</strong>: Campus and home access rely on plastic cards or keys, creating delays, extra costs and accessibility hurdles.</li>
-        <li><strong>Solution</strong>: An ultrasonic sensor wakes an Arduino UNO and OV7670 camera when someone approaches. The image streams via UART → PC → Telegram bot. The owner sends “door open”/“door close” over Telegram, and an ESP32 toggles SG90 servos to lock or unlock.</li>
-        <li><strong>Tech Stack</strong>:
-          <ul>
-            <li><strong>Sensing & Power</strong>: HC-SR04 ultrasonic for 50 cm trigger & power-saving standby</li>
-            <li><strong>Imaging</strong>: OV7670 camera module over UART</li>
-            <li><strong>Control</strong>: Arduino UNO (coordination), ESP32 (Wi-Fi, Telegram API)</li>
-            <li><strong>Actuation</strong>: SG90 servo motors as the lock mechanism</li>
-            <li><strong>Integration</strong>: Telegram Bot via Make.com for workflow automation</li>
-          </ul>
-        </li>
-        <li><strong>Key Features</strong>: live video feed playback, automated entry/exit logs, easy face-database updates, upgradable firmware</li>
-        <li><strong>Real-World Use Cases</strong>: Airbnb hosts granting secure, keyless guest access; campus buildings offering ID-free entry; improved accessibility for users with disabilities</li>
-        <li><strong>Repository</strong>: <a href="https://github.com/nippun-sabharwal/remote-unlock" target="_blank">remote-unlock</a></li>
-      </ul>
-    </div>
-
-    <div class="event">
-      <span class="date">2024</span> – <strong>Fully Functional 16-bit CPU Core & Verilog Autonomous Agent</strong><br>
-      <em>GitHub: <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank">svcpu</a></em>
-      <ul>
-        <li><strong>SLC-3 ISA in SystemVerilog</strong>: Implemented a 16-bit processor with 16-bit PC, IR, registers, ALU and a 3-stage fetch–decode–execute pipeline.</li>
-        <li><strong>Control Unit FSM</strong>: Built a state-machine sequencing memory access, ALU ops and I/O interactions via a `cpu_to_io` bridge.</li>
-        <li><strong>Memory-Mapped I/O & BRAM</strong>: Handled peripherals using on-chip Spartan-7 block RAM without an external "ready" signal.</li>
-        <li><strong>FPGA-Verified</strong>: Synthesized and verified on Spartan-7 board, operating stably at 50 MHz.</li>
-        <li><strong>Verilog Autonomous Agent</strong>: LLM-based system that generates, synthesizes, and verifies new RTL modules, reducing design iteration by 40%.</li>
-      </ul>
-    </div>
-
     <div class="event">
       <span class="date">2025</span> – <strong>Full RISC-V OS Kernel & KTFS Journaling Filesystem + Drivers</strong><br>
       <em>GitHub: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank">ktfs</a></em>
@@ -101,13 +68,46 @@
     </div>
 
     <div class="event">
-      <span class="date">2024</span> – <strong>VR-Based Robot Teleoperation Interface</strong><br>
+      
+      <div style="margin-top: 10px">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/zHB2BcJn3Ps?si=zE-716tN5lVhJgK4" 
+                title="VR-Based Robot Teleoperation Demo" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="event">
+      <span class="date">2024</span> – <strong>Fully Functional 16-bit CPU Core & Verilog Autonomous Agent</strong><br>
+      <em>GitHub: <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank">svcpu</a></em>
       <ul>
-        <li><strong>Head-driven control</strong>: Captured 6-DOF head-pose from Oculus at 60 Hz over ROS; mapped to robotic neck joints via imitation learning.</li>
-        <li><strong>Immersive 3D feedback</strong>: ZED Mini stereo RGBD camera into Unity, sub-60 ms latency stereo feed.</li>
-        <li><strong>Latency & smoothing</strong>: ROS filters + H.264/H.265 compression, achieving 45–60 ms round-trip delay.</li>
-        <li><strong>Modular pipeline</strong>: Unity–ROS–Dynamixel setup, extensible to other robot configurations.</li>
-        <li><strong>Demonstrated performance</strong>: ±0.5° joint accuracy across 3,000-mile network for folding and assembly tasks.</li>
+        <li><strong>SLC-3 ISA in SystemVerilog</strong>: Implemented a 16-bit processor with 16-bit PC, IR, registers, ALU and a 3-stage fetch–decode–execute pipeline.</li>
+        <li><strong>Control Unit FSM</strong>: Built a state-machine sequencing memory access, ALU ops and I/O interactions via a `cpu_to_io` bridge.</li>
+        <li><strong>Memory-Mapped I/O & BRAM</strong>: Handled peripherals using on-chip Spartan-7 block RAM without an external "ready" signal.</li>
+        <li><strong>FPGA-Verified</strong>: Synthesized and verified on Spartan-7 board, operating stably at 50 MHz.</li>
+        <li><strong>Verilog Autonomous Agent</strong>: LLM-based system that generates, synthesizes, and verifies new RTL modules, reducing design iteration by 40%.</li>
+      </ul>
+    </div>
+
+    <div class="event">
+      <span class="date">2023</span> – <strong>DoorGuardian: Autonomous Security System</strong><br>
+      <em>Contributors: Nippun Sabharwal, Vayun Gupta, Siddarth Natarajan</em>
+      <ul>
+        <li>An open-source, low-power remote door-unlock prototype that replaces ID-cards with on-device face recognition and a chat-based interface.</li>
+        <li><strong>Challenge</strong>: Campus and home access rely on plastic cards or keys, creating delays, extra costs and accessibility hurdles.</li>
+        <li><strong>Solution</strong>: An ultrasonic sensor wakes an Arduino UNO and OV7670 camera when someone approaches. The image streams via UART → PC → Telegram bot. The owner sends “door open”/“door close” over Telegram, and an ESP32 toggles SG90 servos to lock or unlock.</li>
+        <li><strong>Tech Stack</strong>:
+          <ul>
+            <li><strong>Sensing & Power</strong>: HC-SR04 ultrasonic for 50 cm trigger & power-saving standby</li>
+            <li><strong>Imaging</strong>: OV7670 camera module over UART</li>
+            <li><strong>Control</strong>: Arduino UNO (coordination), ESP32 (Wi-Fi, Telegram API)</li>
+            <li><strong>Actuation</strong>: SG90 servo motors as the lock mechanism</li>
+            <li><strong>Integration</strong>: Telegram Bot via Make.com for workflow automation</li>
+          </ul>
+        </li>
+        <li><strong>Key Features</strong>: live video feed playback, automated entry/exit logs, easy face-database updates, upgradable firmware</li>
+        <li><strong>Real-World Use Cases</strong>: Airbnb hosts granting secure, keyless guest access; campus buildings offering ID-free entry; improved accessibility for users with disabilities</li>
+        <li><strong>Repository</strong>: <a href="https://github.com/nippun-sabharwal/remote-unlock" target="_blank">remote-unlock</a></li>
       </ul>
     </div>
   </div>
