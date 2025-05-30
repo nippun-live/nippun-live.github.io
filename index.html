@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -46,18 +46,24 @@
   <h1>Nippun Sabharwal</h1>
   <p>Engineer | Researcher | Builder</p>
 
-  <h2>Work Timeline</h2>
+  <h2>My Projects</h2>
   <div class="timeline">
     <div class="event">
-      <span class="date">In progress</span> – <strong>Multimodal Robotic World Model</strong><br>
+      <span class="date">2024</span> – <strong>Multimodal Robotic World Model</strong><br>
+      In progress<br>
       Unified sensor+teleop AI model that accelerates robot skill learning and safe human-robot collaboration.
     </div>
 
     <div class="event">
       <strong>Physics-Based Dynamic Scene Recon.</strong><br>
-      Link: <a href="https://github.com/nippun-sabharwal/Fluid_Wave_Simulator" target="_blank">github.com/nippun-sabharwal/Fluid_Wave_Simulator</a><br>
+      Submitting to AAAI 2025 <br>
       Developing unsupervised, physics-informed deep learning frameworks for modeling atmospheric turbulence and fluid dynamics. Integrated convolutional encoders, optical-flow estimation, and digital-signal-processing filters (e.g., Fourier- and wavelet domain) with physical-optics simulations and 3D geometric scene reconstruction to accurately predict and correct refractive and flow-induced distortions in real-world imagery. Training on parallel supercomputing clusters.
     </div>
+
+    <div class="event">
+      <span class="date">2024</span> – <strong>AI-Accelerated Hardware Design & Benchmarking</strong><br>
+      Submitted to NeurIPS 2025<br>
+      Using LLMs to generate and verify systemverilog modules for complex hardwaredesign tasks. Developed a benchmarking pipeline for evaluating LLMs on hardware design tasks, with build in autogreders testing LLM-generated modules with testbenches using open source simulation solftwares. The suite includes a diverse set of tasks with varying complexity and domain-specific requirements, enabling comprehensive evaluation of LLM capabilities in hardware design.
 
     <div class="event">
       <span class="date">2024</span> – <strong>VR-Based Robot Teleoperation Interface</strong><br>
@@ -129,16 +135,15 @@
     </div>
 
     <div class="event">
-      <span class="date">2024</span> – <strong>Fully Functional 16-bit CPU Core & Verilog Autonomous Agent</strong><br>
+      <span class="date">2024</span> – <strong>Fully Functional 16-bit CPU Core </strong><br>
       GitHub: <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank">github.com/nippun-sabharwal/svcpu</a>
       <ul>
         <li><strong>SLC-3 ISA in SystemVerilog</strong>: Implemented a 16-bit processor with 16-bit PC, IR, registers, ALU and a 3-stage fetch–decode–execute pipeline, supporting ADD, AND, NOT, BR, JMP, JSR, LDR, STR and PAUSE instructions.</li>
         <li><strong>Control Unit FSM</strong>: Built a state-machine sequencing memory access, ALU ops and I/O interactions via a cpu_to_io bridge for on-board switches and hex displays.</li>
         <li><strong>Memory-Mapped I/O & BRAM</strong>: Mapped UART, switches and seven-segment displays into address space using on-chip Spartan-7 block RAM, handling read/write timing without an external “ready” signal.</li>
         <li><strong>FPGA-Verified</strong>: Synthesized and timing-closed the design in Vivado on a Xilinx Spartan-7 board, demonstrating stable operation at 50 MHz.</li>
-        <li><strong>Verilog Autonomous Agent</strong>: Developed an LLM-driven framework that generates, synthesizes and verifies new RTL modules, reducing manual hardware-design iterations by 40%.</li>
       </ul>
-      This project showcases end-to-end expertise from ISA specification through FPGA implementation to AI-accelerated hardware development.
+      This project showcases end-to-end expertise from ISA specification through FPGA implementation.
     </div>
 
     <div class="event">
@@ -164,6 +169,7 @@
 
     <div class="event">
       <strong>PotterMost Platform</strong><br>
+      Repository: <a href="https://bit.ly/pottermost" target="_blank">https://bit.ly/pottermost</a><br>      
       Grew a Harry Potter fan community to 12 500+ users and 4 000 social followers; led 30 volunteers to build quizzes & discussions.
     </div>
   </div>
@@ -171,8 +177,158 @@
   <h2>Links</h2>
   <ul>
     <li><a href="https://github.com/nippun-live" target="_blank">GitHub</a></li>
-    <li><a href="mailto:nippun@email.com">Email Me</a></li>
-    <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+    <li><a href="mailto:nippuns2@illinois.edu">Email Me</a></li>
+    <li><a href="https://www.linkedin.com/in/nippun-sabharwal/" target="_blank">LinkedIn</a></li>
+  </ul>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nippun Sabharwal</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #222;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .timeline {
+      border-left: 2px solid #aaa;
+      padding-left: 20px;
+      margin-top: 20px;
+    }
+    .event {
+      margin-bottom: 40px;
+    }
+    .date {
+      font-weight: bold;
+      color: #555;
+    }
+    a {
+      color: #0645AD;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nippun Sabharwal</h1>
+  <p>Engineer | Researcher | Builder</p>
+
+  <h2>My Projects</h2>
+  <div class="timeline">
+    <div class="event">
+      <span class="date">2024</span> – <strong>Multimodal Robotic World Model</strong><br>
+      <em>In progress</em><br>
+      Developing a unified sensor and teleoperation AI model designed to significantly accelerate robotic skill acquisition and enable safer, more intuitive human-robot collaboration. This project aims to create robots that can learn complex tasks more efficiently by understanding and interacting with their environment through diverse sensory inputs and human guidance.
+    </div>
+
+    <div class="event">
+      <strong>Physics-Based Dynamic Scene Reconstruction</strong><br>
+      <em>Submitting to AAAI 2025</em><br>
+      Pioneering unsupervised, physics-informed deep learning frameworks to model and compensate for atmospheric turbulence and fluid dynamics in visual data. This research integrates convolutional encoders, optical flow estimation, and advanced digital signal processing (Fourier and wavelet domain filters) with physical optics simulations and 3D geometric scene reconstruction. The goal is to accurately predict and correct refractive and flow-induced distortions in real-world imagery, with model training conducted on parallel supercomputing clusters. This work has the potential to revolutionize imaging in challenging environmental conditions.
+    </div>
+
+    <div class="event">
+      <span class="date">2024</span> – <strong>AI-Accelerated Hardware Design & Benchmarking</strong><br>
+      <em>Submitted to NeurIPS 2025</em><br>
+      Leveraging Large Language Models (LLMs) to automate the generation and verification of SystemVerilog modules for complex hardware design tasks. Developed a comprehensive benchmarking pipeline to evaluate LLM performance in hardware design, featuring automated graders that test LLM-generated modules against testbenches using open-source simulation software. This suite includes a diverse array of tasks, varying in complexity and domain-specific requirements, to thoroughly assess and advance LLM capabilities in the hardware engineering lifecycle.
+    </div>
+
+    <div class="event">
+      <span class="date">2024</span> – <strong>VR-Based Robot Teleoperation Interface</strong><br>
+      Link: <a href="https://youtu.be/zHB2BcJn3Ps" target="_blank">Demonstration Video</a>
+      <div style="margin-top: 10px">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/zHB2BcJn3Ps?si=zE-716tN5lVhJgK4"
+                title="VR-Based Robot Teleoperation Demo" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+      <p>Engineered an intuitive VR teleoperation system enabling precise remote robot control, as demonstrated in the linked video [00:00]. Key achievements include:</p>
+      <ul>
+        <li><strong>Real-time Head-Driven Control</strong>: Captured 6-DOF head-pose at 60 Hz from an Oculus headset via ROS, translating movements into joint commands for a multi-DOF robotic neck. This facilitates smooth, natural robot motion through imitation learning [00:01].</li>
+        <li><strong>Immersive 3D Visual Feedback</strong>: Integrated a ZED Mini stereo RGBD camera, streaming dual-view video into Unity with under 60ms latency. This provides operators with crucial depth perception for performing fine manipulation tasks remotely [00:01].</li>
+        <li><strong>Optimized Latency & Motion Smoothing</strong>: Implemented ROS dampening filters and H.264/H.265 video compression, achieving 60 Hz command updates. This resulted in a low round-trip delay of 45–60 ms and sub-degree motion accuracy, critical for effective teleoperation.</li>
+        <li><strong>Modular & Extensible Architecture</strong>: Designed a Unity–ROS–Dynamixel workflow with configurable DOF settings, ensuring adaptability to various robot platforms and paving the way for future full-body telemanipulation capabilities.</li>
+        <li><strong>Validated High-Performance</strong>: Successfully executed remote folding and assembly tasks with ±0.5° accuracy in yaw and pitch over a 3,000-mile network, establishing a robust foundation for scalable imitation-learning data collection and complex remote operations.</li>
+      </ul>
+    </div>
+
+    <div class="event">
+      <span class="date">2025</span> – <strong>Full RISC-V OS Kernel & KTFS Journaling Filesystem + Drivers</strong><br>
+      GitHub: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank">github.com/nippun-sabharwal/ktfs</a>
+      <p>Developed a comprehensive, UNIX-style operating system kernel and a robust journaling filesystem (KTFS) from scratch for the RISC-V architecture. This project demonstrates deep expertise in low-level systems programming and OS design. Highlights include:</p>
+      <ul>
+        <li><strong>UNIX-style Kernel in C</strong>: Implemented core OS functionalities including a bootloader, trap handling, Sv39 virtual memory with demand paging, and process abstraction. Supports essential user-mode syscalls (open, close, read, write, ioctl, exec, fork, wait, usleep, fscreate, fsdelete).</li>
+        <li><strong>KTFS Journaling Filesystem</strong>: Engineered a block-based filesystem with a write-ahead journal for metadata consistency and robust crash recovery. Features support for create, read, write, delete, flush operations, and multi-level indirection. Mountable via VirtIO block device or an in-memory “memio” for rapid testing.</li>
+        <li><strong>Device Drivers & MMIO</strong>: Developed drivers for UART (polling & interrupt-driven), Real-Time Clock (RTC), Platform-Level Interrupt Controller (PLIC), VirtIO block & RNG devices (with custom ISR integration), and GPIO, SPI, servo interfaces for embedded peripherals.</li>
+        <li><strong>Efficient Block Cache Layer</strong>: Implemented a write-back cache with configurable associativity, significantly reducing I/O latency for both filesystem and block operations while ensuring data consistency through the journaling mechanism.</li>
+        <li><strong>Advanced Threading & Interrupts</strong>: Created cooperative and preemptive threading models using condition variables and timer (mtime) interrupts. Includes an idle thread for power-efficient wait-for-interrupt behavior and context switching between user and kernel threads.</li>
+        <li><strong>ELF Loader & User Program Execution</strong>: Built a unified I/O interface to load and execute ELF binaries (e.g., Star Trek game) on QEMU RISC-V, validated by automated tests for correct loading, execution, and system-call handling.</li>
+        <li><strong>Rigorous Validation & Debugging</strong>: Conducted comprehensive unit testing for all major components (drivers, cache, filesystem, threading, syscalls) and performed end-to-end debugging on QEMU RISC-V with GDB, ensuring robust OS functionality.</li>
+      </ul>
+    </div>
+
+    <div class="event">
+      <span class="date">2024</span> – <strong>Fully Functional 16-bit CPU Core </strong><br>
+      GitHub: <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank">github.com/nippun-sabharwal/svcpu</a>
+      <p>Designed and implemented a 16-bit CPU based on the SLC-3 Instruction Set Architecture (ISA) in SystemVerilog, showcasing end-to-end expertise from ISA specification through to FPGA verification. Key features:</p>
+      <ul>
+        <li><strong>SLC-3 ISA Implementation</strong>: Developed a 16-bit processor featuring a 16-bit Program Counter (PC), Instruction Register (IR), general-purpose registers, ALU, and a 3-stage fetch–decode–execute pipeline. Supports core instructions including ADD, AND, NOT, BR, JMP, JSR, LDR, STR, and PAUSE.</li>
+        <li><strong>Finite State Machine Control Unit</strong>: Constructed a state-machine to precisely sequence memory access, ALU operations, and I/O interactions via a custom `cpu_to_io` bridge, interfacing with on-board switches and hexadecimal displays.</li>
+        <li><strong>Memory-Mapped I/O & BRAM Integration</strong>: Mapped UART, switches, and seven-segment displays into the CPU's address space utilizing on-chip Spartan-7 Block RAM (BRAM), efficiently handling read/write timing without requiring an external “ready” signal.</li>
+        <li><strong>FPGA Verification</strong>: Successfully synthesized and achieved timing closure for the design in Vivado, deploying and verifying stable operation at 50 MHz on a Xilinx Spartan-7 FPGA board.</li>
+      </ul>
+    </div>
+
+    <div class="event">
+      <span class="date">2023</span> – <strong>DoorGuardian: Autonomous Security System</strong><br>
+      Repository: <a href="https://github.com/nippun-sabharwal/remote-unlock" target="_blank">https://github.com/nippun-sabharwal/remote-unlock</a><br>
+      <em>Contributors: Nippun Sabharwal, Vayun Gupta, Siddarth Natarajan</em>
+      <p>Developed an innovative autonomous security system to modernize access control, addressing the inefficiencies of traditional key/card-based systems.</p>
+      <ul>
+        <li><strong>Problem Addressed</strong>: Traditional campus and home access methods relying on physical cards or keys often lead to delays, additional costs, and accessibility challenges.</li>
+        <li><strong>Innovative Solution</strong>: DoorGuardian employs an ultrasonic sensor (HC-SR04) to detect approaching individuals, triggering an Arduino UNO and OV7670 camera. The captured image is streamed via UART to a PC and then to a Telegram bot. Property owners can remotely grant access by sending “door open” or “door close” commands via Telegram, which an ESP32 then uses to actuate SG90 servo motors, locking or unlocking the door.</li>
+        <li><strong>Technology Stack</strong>:
+          <ul>
+            <li>Sensing & Power Management: HC-SR04 ultrasonic sensor (50 cm trigger range) for motion detection and power-saving standby mode.</li>
+            <li>Imaging: OV7670 camera module interfaced over UART.</li>
+            <li>Core Control: Arduino UNO for system coordination, ESP32 for Wi-Fi connectivity and Telegram API interaction.</li>
+            <li>Actuation: SG90 servo motors for the physical locking mechanism.</li>
+            <li>Workflow Automation: Telegram Bot integrated via Make.com for seamless remote control.</li>
+          </ul>
+        </li>
+        <li><strong>Key Features & Impact</strong>: Provides a live video feed for verification, automated entry/exit logs for security monitoring, an easily updatable face database, and firmware that can be upgraded for future enhancements. This system offers significant real-world benefits, such as secure keyless access for Airbnb guests, ID-free entry for campus buildings, and improved accessibility for users with disabilities.</li>
+      </ul>
+    </div>
+
+    <div class="event">
+      <strong>PotterMost Platform</strong><br>
+      Repository: <a href="https://bit.ly/pottermost" target="_blank">https://bit.ly/pottermost</a><br>      
+      Successfully cultivated and scaled a vibrant Harry Potter fan community to over 12,500 registered users and 4,000+ social media followers. Led and coordinated a team of 30 volunteers to develop engaging content, including quizzes and discussion forums, fostering a highly active and interactive online platform. This demonstrates strong leadership, community management, and content strategy skills.
+    </div>
+  </div>
+
+  <h2>Links</h2>
+  <ul>
+    <li><a href="https://github.com/nippun-live" target="_blank">GitHub</a></li>
+    <li><a href="mailto:nippuns2@illinois.edu">Email Me</a></li>
+    <li><a href="https://www.linkedin.com/in/nippun-sabharwal/" target="_blank">LinkedIn</a></li>
   </ul>
 </body>
 </html>
