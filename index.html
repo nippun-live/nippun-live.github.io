@@ -182,6 +182,8 @@
   </ul>
 </body>
 </html> -->
+
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -330,5 +332,237 @@
     <li><a href="mailto:nippuns2@illinois.edu">Email Me</a></li>
     <li><a href="https://www.linkedin.com/in/nippun-sabharwal/" target="_blank">LinkedIn</a></li>
   </ul>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nippun Sabharwal • Portfolio</title>
+  <style>
+    /* ------- Base layout ------- */
+    :root {
+      --max-w: 880px;
+      --fg: #222;
+      --fg-light: #4a4a4a;
+      --accent: #0645ad;
+      --border: #c8c8c8;
+      --bg-chip: #f3f7ff;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      margin: 0 auto;
+      padding: 2rem 1.2rem 4rem;
+      max-width: var(--max-w);
+      line-height: 1.55;
+      color: var(--fg);
+    }
+    h1, h2, h3 { color: #303030; margin-block: 0 0.25em; }
+    h1 { font-size: 2.2rem; }
+    h2 { margin-top: 3rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+
+    /* ------- Navigation ------- */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-block: 1.2rem 2rem;
+    }
+    .chip {
+      background: var(--bg-chip);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+    }
+
+    /* ------- Project cards ------- */
+    .project {
+      border-left: 3px solid var(--border);
+      padding-left: 1rem;
+      margin-block: 1.8rem 2.2rem;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: var(--fg-light);
+      margin-bottom: 0.3rem;
+    }
+    .summary {
+      margin-bottom: 0.6rem;
+    }
+    details {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.8rem 1rem;
+      background: #fafafa;
+    }
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      outline: none;
+    }
+    details[open] summary::after { content: "▲"; float: right; font-size: 0.7rem; }
+    details summary::after { content: "▼"; float: right; font-size: 0.7rem; }
+    ul { margin-left: 1rem; }
+    li { margin-top: 0.35rem; }
+
+    /* ------- Footer ------- */
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nippun Sabharwal</h1>
+  <p class="meta">Engineer, Researcher, Builder</p>
+
+  <!-- Quick navigation for busy readers -->
+  <nav aria-label="Section links">
+    <a href="#projects" class="chip">Projects</a>
+    <a href="#links" class="chip">Links</a>
+  </nav>
+
+  <main>
+    <h2 id="projects">Selected Projects</h2>
+
+    <!-- 1. Multimodal Robotic World Model -->
+    <section class="project" id="robotic-world-model">
+      <h3>2024 · Multimodal Robotic World Model</h3>
+      <p class="summary">Unified sensor and teleoperation model that accelerates robot skill learning and enables safer collaboration between humans and robots.</p>
+      <details>
+        <summary>Technical details</summary>
+        <ul>
+          <li>Combines visual, force, and proprioceptive inputs in a single transformer based policy.</li>
+          <li>Leverages imitation learning and self supervised objectives to reduce real robot data requirements by ten times compared with baseline approaches.</li>
+          <li>Implements a differentiable kinematics layer for sensor to actuator alignment, permitting zero shot transfer across robot embodiments.</li>
+          <li>Stack: PyTorch, CUDA, ROS2, Isaac Sim, 32 GPU Slurm cluster.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 2. Physics based dynamic scene reconstruction -->
+    <section class="project" id="scene-recon">
+      <h3>Physics Based Dynamic Scene Reconstruction (AAAI 2025 submission)</h3>
+      <p class="summary">Unsupervised, physics informed deep learning framework that models and corrects atmospheric turbulence and fluid induced distortions in imagery.</p>
+      <details>
+        <summary>Technical details</summary>
+        <ul>
+          <li>Integrates convolutional encoders, optical flow estimation, and Fourier / wavelet filtering with physical optics simulation.</li>
+          <li>Reconstructs 3D geometry by jointly estimating depth and refractive index gradients.</li>
+          <li>Training carried out on a 512 GPU supercomputing cluster using mixed precision data parallelism.</li>
+          <li>Outperforms state of the art by 3 dB PSNR on the HazeBench benchmark while running at 40 FPS.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 3. AI accelerated hardware design -->
+    <section class="project" id="ai-hw-design">
+      <h3>2024 · AI Accelerated Hardware Design and Benchmarking (NeurIPS 2025)</h3>
+      <p class="summary">Uses large language models to automatically generate and verify SystemVerilog modules, streamlining the hardware design cycle.</p>
+      <details>
+        <summary>Technical details</summary>
+        <ul>
+          <li>Created a graded task suite ranging from arithmetic units to cache controllers with reference testbenches.</li>
+          <li>Pipeline compiles LLM output, simulates in Verilator, and reports functional and timing metrics.</li>
+          <li>Gradient boosted scoring aggregates coverage, latency, area, and power into a single leaderboard metric.</li>
+          <li>Open sourced at <a href="https://github.com/nippun-sabharwal/hw-llm-bench" target="_blank" rel="noopener">GitHub</a>.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 4. VR teleoperation -->
+    <section class="project" id="vr-teleop">
+      <h3>2024 · VR Based Robot Teleoperation Interface</h3>
+      <p class="summary"><a href="https://youtu.be/zHB2BcJn3Ps" target="_blank" rel="noopener">Video demo</a> shows intuitive head driven control with sub degree accuracy across 3,000 mile networks.</p>
+      <details>
+        <summary>Technical details</summary>
+        <ul>
+          <li>Head pose captured at 60 Hz from Oculus headset, converted to neck joint commands via ROS.</li>
+          <li>ZED Mini stereo RGBD stream delivered to Unity with under 60 ms round trip latency.</li>
+          <li>Adaptive Kalman filter smooths jitter while preserving responsiveness for precise manipulation.</li>
+          <li>Modular Unity ROS Dynamixel stack supports rapid reconfiguration for different robot bodies.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 5. KTFS & RISC V kernel -->
+    <section class="project" id="ktfs">
+      <h3>2025 · RISC V Kernel and KTFS Journaling Filesystem</h3>
+      <p class="summary">Full Unix style kernel in C and a write ahead journaling filesystem, built from scratch for QEMU RISC V.</p>
+      <details>
+        <summary>Technical details</summary>
+        <ul>
+          <li>Bootloader, trap handler, Sv39 virtual memory with demand paging.</li>
+          <li>Syscalls: open, close, read, write, exec, fork, wait, fscreate, fsdelete, ioctl, usleep.</li>
+          <li>KTFS: block based design with two phase commit journal, multi level indirection, mountable via VirtIO or in memory driver.</li>
+          <li>Drivers: UART, RTC, PLIC, VirtIO block and RNG, GPIO, SPI, servo.</li>
+          <li>Write back block cache with configurable associativity, thread safe via ticket spinlocks.</li>
+          <li>Automated test suite and gdb scripts validate kernel correctness.</li>
+          <li>Source code: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank" rel="noopener">ktfs on GitHub</a>.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 6. 16 bit CPU -->
+    <section class="project" id="svcpi">
+      <h3>2024 · Fully Functional 16‑bit CPU Core</h3>
+      <p class="summary">Implemented SLC 3 ISA in SystemVerilog and verified on a Spartan 7 FPGA board.</p>
+      <details>
+        <summary>Technical details</summary>
+        <ul>
+          <li>Three stage fetch decode execute pipeline with hazard free forwarding.</li>
+          <li>Memory mapped UART, switches, and seven segment displays using on chip BRAM.</li>
+          <li>Finite state machine control unit sequences ALU and memory operations.</li>
+          <li>Achieved timing closure at 50 MHz, design files at <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank" rel="noopener">GitHub</a>.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 7. DoorGuardian -->
+    <section class="project" id="doorguardian">
+      <h3>2023 · DoorGuardian Autonomous Security System</h3>
+      <p class="summary">Keyless access system using Arduino, ESP32, and Telegram bot. Enables remote door control with live video verification.</p>
+      <details>
+        <summary>Technical details</summary>
+        <ul>
+          <li>HC SR04 ultrasonic sensor triggers OV7670 camera capture and low power wake up.</li>
+          <li>Image forwarded over UART to PC, streamed to Telegram for owner decision.</li>
+          <li>ESP32 actuates SG90 servos on owner command, closing feedback loop in under three seconds.</li>
+          <li>Repository: <a href="https://github.com/nippun-live/DoorGuardian-Autonomous-Security-System" target="_blank" rel="noopener">DoorGuardian on GitHub</a>.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 8. PotterMost -->
+    <section class="project" id="pottermost">
+      <h3>PotterMost Fan Platform</h3>
+      <p class="summary">Scaled a Harry Potter fan community to 12,500 users and 4,000 followers, leading a team of 30 volunteers.</p>
+      <details>
+        <summary>Highlights</summary>
+        <ul>
+          <li>Developed quizzes, thematic analyses, and interactive boards that drove high engagement.</li>
+          <li>Managed content calendar and mentoring for volunteer contributors.</li>
+        </ul>
+      </details>
+    </section>
+
+  </main>
+
+  <footer id="links">
+    <h2>Links</h2>
+    <nav>
+      <a class="chip" href="https://github.com/nippun-live" target="_blank" rel="noopener">GitHub</a>
+      <a class="chip" href="mailto:nippuns2@illinois.edu">Email</a>
+      <a class="chip" href="https://www.linkedin.com/in/nippun-sabharwal/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </footer>
 </body>
 </html>
