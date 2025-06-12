@@ -279,10 +279,22 @@
       font-weight: bold;
       color: var(--muted-color);
     }
+    /*
     .event strong {
       font-size: var(--project-heading-size);
       color: var(--heading-color);
       margin-left: 6px;
+    }
+      */
+    event > strong {
+      font-size: var(--project-heading-size);
+      color: var(--heading-color);
+      margin-left: 6px;
+    }
+    /* 2) Keep bullet-point <strong> at normal text size */
+    .event ul li strong {
+      font-size: var(--project-text-size);
+      color: var(--project-text-color);
     }
     .event em,
     .event p {
@@ -311,10 +323,10 @@
 <body>
 
   <header class="header">
-    <img src="your-photo.jpg" alt="Nippun Sabharwal" class="profile-pic">
+    <img src="images/pfp.jpg" alt="Nippun Sabharwal" class="profile-pic">
     <div class="header-text">
       <h1>Nippun Sabharwal</h1>
-      <p class="subtitle">Engineer , Researcher , Builder</p>
+      <p class="subtitle">Researcher, Builder</p>
       <ul class="contact-links">
         <li><a href="https://github.com/nippun-live" target="_blank">GitHub</a></li>
         <li><a href="mailto:nippuns2@illinois.edu">Email Me</a></li>
@@ -328,7 +340,7 @@
     <div class="event">
       <span class="date">2024</span> – <strong>Multimodal Robotic World Model</strong><br>
       <em>In progress</em><br>
-      Developing a unified sensor and teleoperation AI model designed to accelerate robotic perception and and enable safer, more intuitive human-robot collaboration. This project aims to create robots that can learn complex tasks more efficiently by understanding and interacting with their environment through diverse sensory inputs and human guidance.
+      Concept-phase startup developing a unified sensor and teleoperation AI model designed to accelerate robotic perception and and enable safer, more intuitive human-robot collaboration. This project aims to create robots that can learn complex tasks more efficiently by understanding and interacting with their environment through diverse sensory inputs and human guidance.
     </div>
 
     <div class="event">
@@ -411,9 +423,10 @@
     </div>
 
     <div class="event">
-      <strong>PotterMost Platform</strong><br>
-      Repository: <a href="https://bit.ly/pottermost" target="_blank">https://bit.ly/pottermost</a><br>      
-      Successfully cultivated and scaled a vibrant Harry Potter fan community to over 12,500 registered users and 4,000+ social media followers. Led and coordinated a team of 30 volunteers to develop engaging content, including quizzes and discussion forums, fostering a highly active and interactive online platform. This demonstrates strong leadership, community management, and content strategy skills.
+      <span class="date">2018</span> – <strong>PotterMost Platform </strong><br>
+
+      Website: <a href="https://bit.ly/pottermost" target="_blank">https://bit.ly/pottermost</a><br>      
+      This was my first project! Successfully cultivated and scaled a vibrant Harry Potter fan community to over 12,500 registered users and 4,000+ social media followers. Led and coordinated a team of 30 volunteers to develop engaging content, including quizzes and discussion forums, fostering a highly active and interactive online platform. This demonstrates strong leadership, community management, and content strategy skills.
     </div>
   </div>
 
