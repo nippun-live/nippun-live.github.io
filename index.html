@@ -183,7 +183,7 @@
 </body>
 </html> -->
 
-<!-- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -237,19 +237,7 @@
     <div class="event">
       <span class="date">2024</span> – <strong>Multimodal Robotic World Model</strong><br>
       <em>In progress</em><br>
-      Developing a unified sensor and teleoperation AI model designed to significantly accelerate robotic skill acquisition and enable safer, more intuitive human-robot collaboration. This project aims to create robots that can learn complex tasks more efficiently by understanding and interacting with their environment through diverse sensory inputs and human guidance.
-    </div>
-
-    <div class="event">
-      <strong>Physics-Based Dynamic Scene Reconstruction</strong><br>
-      <em>Submitting to AAAI 2025</em><br>
-      Pioneering unsupervised, physics-informed deep learning frameworks to model and compensate for atmospheric turbulence and fluid dynamics in visual data. This research integrates convolutional encoders, optical flow estimation, and advanced digital signal processing (Fourier and wavelet domain filters) with physical optics simulations and 3D geometric scene reconstruction. The goal is to accurately predict and correct refractive and flow-induced distortions in real-world imagery, with model training conducted on parallel supercomputing clusters. This work has the potential to revolutionize imaging in challenging environmental conditions.
-    </div>
-
-    <div class="event">
-      <span class="date">2024</span> – <strong>AI-Accelerated Hardware Design & Benchmarking</strong><br>
-      <em>Submitted to NeurIPS 2025</em><br>
-      Leveraging Large Language Models (LLMs) to automate the generation and verification of SystemVerilog modules for complex hardware design tasks. Developed a comprehensive benchmarking pipeline to evaluate LLM performance in hardware design, featuring automated graders that test LLM-generated modules against testbenches using open-source simulation software. This suite includes a diverse array of tasks, varying in complexity and domain-specific requirements, to thoroughly assess and advance LLM capabilities in the hardware engineering lifecycle.
+      Developing a unified sensor and teleoperation AI model designed to accelerate robotic perception and and enable safer, more intuitive human-robot collaboration. This project aims to create robots that can learn complex tasks more efficiently by understanding and interacting with their environment through diverse sensory inputs and human guidance.
     </div>
 
     <div class="event">
@@ -261,24 +249,24 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
       </div>
-      <p>Engineered an intuitive VR teleoperation system enabling precise remote robot control, as demonstrated in the linked video [00:00]. Key achievements include:</p>
+      <p>Engineered an intuitive VR teleoperation system enabling precise remote robot control. Key achievements include:</p>
       <ul>
-        <li><strong>Real-time Head-Driven Control</strong>: Captured 6-DOF head-pose at 60 Hz from an Oculus headset via ROS, translating movements into joint commands for a multi-DOF robotic neck. This facilitates smooth, natural robot motion through imitation learning [00:01].</li>
-        <li><strong>Immersive 3D Visual Feedback</strong>: Integrated a ZED Mini stereo RGBD camera, streaming dual-view video into Unity with under 60ms latency. This provides operators with crucial depth perception for performing fine manipulation tasks remotely [00:01].</li>
+        <li><strong>Real-time Head-Driven Control</strong>: Captured 3-DOF head-pose at 60 Hz from an Oculus headset via ROS, translating movements into joint commands for a multi-DOF robotic neck. This facilitates smooth, natural robot motion through imitation learning.</li>
+        <li><strong>Immersive 3D Visual Feedback</strong>: Integrated a stereo RGBD camera, streaming dual-view video into the Occulus, completeing a closed loop where headset user can look at Robot's envirnoment and reptely perform actions, getting immediate feeback. This provides operators with crucial depth perception for performing fine manipulation tasks.</li>
         <li><strong>Optimized Latency & Motion Smoothing</strong>: Implemented ROS dampening filters and H.264/H.265 video compression, achieving 60 Hz command updates. This resulted in a low round-trip delay of 45–60 ms and sub-degree motion accuracy, critical for effective teleoperation.</li>
         <li><strong>Modular & Extensible Architecture</strong>: Designed a Unity–ROS–Dynamixel workflow with configurable DOF settings, ensuring adaptability to various robot platforms and paving the way for future full-body telemanipulation capabilities.</li>
-        <li><strong>Validated High-Performance</strong>: Successfully executed remote folding and assembly tasks with ±0.5° accuracy in yaw and pitch over a 3,000-mile network, establishing a robust foundation for scalable imitation-learning data collection and complex remote operations.</li>
+        <li><strong>Validated High-Performance</strong>: Successfully executed neck movements and remote folding tasks with ±0.5° accuracy in yaw and pitch over a 3,000-mile network, establishing a robust foundation for scalable imitation-learning data collection and complex remote operations.</li>
       </ul>
     </div>
 
     <div class="event">
-      <span class="date">2025</span> – <strong>Full RISC-V OS Kernel & KTFS Journaling Filesystem + Drivers</strong><br>
+      <span class="date">2025</span> – <strong>RISC-V OS Kernel + Filesystem + IO Drivers</strong><br>
       GitHub: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank">github.com/nippun-sabharwal/ktfs</a>
-      <p>Developed a comprehensive, UNIX-style operating system kernel and a robust journaling filesystem (KTFS) from scratch for the RISC-V architecture. This project demonstrates deep expertise in low-level systems programming and OS design. Highlights include:</p>
+      <p>Developed a comprehensive, UNIX-style operating system kernel and a robust journaling filesystem from scratch for the RISC-V architecture. This project demonstrates deep expertise in low-level systems programming and OS design. Highlights include:</p>
       <ul>
         <li><strong>UNIX-style Kernel in C</strong>: Implemented core OS functionalities including a bootloader, trap handling, Sv39 virtual memory with demand paging, and process abstraction. Supports essential user-mode syscalls (open, close, read, write, ioctl, exec, fork, wait, usleep, fscreate, fsdelete).</li>
-        <li><strong>KTFS Journaling Filesystem</strong>: Engineered a block-based filesystem with a write-ahead journal for metadata consistency and robust crash recovery. Features support for create, read, write, delete, flush operations, and multi-level indirection. Mountable via VirtIO block device or an in-memory “memio” for rapid testing.</li>
-        <li><strong>Device Drivers & MMIO</strong>: Developed drivers for UART (polling & interrupt-driven), Real-Time Clock (RTC), Platform-Level Interrupt Controller (PLIC), VirtIO block & RNG devices (with custom ISR integration), and GPIO, SPI, servo interfaces for embedded peripherals.</li>
+        <li><strong>Custom Filesystem</strong>: Engineered a block-based filesystem with a write-ahead journal for metadata consistency and robust crash recovery. Features support for create, read, write, delete, flush operations, and multi-level indirection. Mountable via VirtIO block device or an in-memory “memio” for rapid testing.</li>
+        <li><strong>Device Drivers & MMIO</strong>: Developed drivers for UART (polling & interrupt-driven), Real-Time Clock (RTC), Platform-Level Interrupt Controller (PLIC), VirtIO block & RNG devices (with custom ISR integration), and GPIO, SPI interfaces for embedded peripherals.</li>
         <li><strong>Efficient Block Cache Layer</strong>: Implemented a write-back cache with configurable associativity, significantly reducing I/O latency for both filesystem and block operations while ensuring data consistency through the journaling mechanism.</li>
         <li><strong>Advanced Threading & Interrupts</strong>: Created cooperative and preemptive threading models using condition variables and timer (mtime) interrupts. Includes an idle thread for power-efficient wait-for-interrupt behavior and context switching between user and kernel threads.</li>
         <li><strong>ELF Loader & User Program Execution</strong>: Built a unified I/O interface to load and execute ELF binaries (e.g., Star Trek game) on QEMU RISC-V, validated by automated tests for correct loading, execution, and system-call handling.</li>
@@ -287,15 +275,27 @@
     </div>
 
     <div class="event">
-      <span class="date">2024</span> – <strong>Fully Functional 16-bit CPU Core </strong><br>
+      <span class="date">2024</span> – <strong>16-bit CPU Core </strong><br>
       GitHub: <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank">github.com/nippun-sabharwal/svcpu</a>
-      <p>Designed and implemented a 16-bit CPU based on the SLC-3 Instruction Set Architecture (ISA) in SystemVerilog, showcasing end-to-end expertise from ISA specification through to FPGA verification. Key features:</p>
+      <p>Designed and implemented a 16-bit CPU based on a reduced instruction set, x86-inspired ISA in SystemVerilog, showcasing end-to-end expertise from ISA specification through to FPGA verification. Key features:</p>
       <ul>
-        <li><strong>SLC-3 ISA Implementation</strong>: Developed a 16-bit processor featuring a 16-bit Program Counter (PC), Instruction Register (IR), general-purpose registers, ALU, and a 3-stage fetch–decode–execute pipeline. Supports core instructions including ADD, AND, NOT, BR, JMP, JSR, LDR, STR, and PAUSE.</li>
+        <li><strong>ISA Implementation</strong>: Developed a 16-bit processor featuring a 16-bit Program Counter (PC), Instruction Register (IR), general-purpose registers, ALU, and a 3-stage fetch–decode–execute pipeline. Supports core instructions including ADD, AND, NOT, BR, JMP, JSR, LDR, STR, and PAUSE.</li>
         <li><strong>Finite State Machine Control Unit</strong>: Constructed a state-machine to precisely sequence memory access, ALU operations, and I/O interactions via a custom `cpu_to_io` bridge, interfacing with on-board switches and hexadecimal displays.</li>
         <li><strong>Memory-Mapped I/O & BRAM Integration</strong>: Mapped UART, switches, and seven-segment displays into the CPU's address space utilizing on-chip Spartan-7 Block RAM (BRAM), efficiently handling read/write timing without requiring an external “ready” signal.</li>
         <li><strong>FPGA Verification</strong>: Successfully synthesized and achieved timing closure for the design in Vivado, deploying and verifying stable operation at 50 MHz on a Xilinx Spartan-7 FPGA board.</li>
       </ul>
+    </div>
+
+        <div class="event">
+      <strong>Physics-Based Dynamic Scene Reconstruction</strong><br>
+      <em>Submitting to AAAI 2025</em><br>
+      Pioneering unsupervised, physics-informed deep learning frameworks to model and compensate for atmospheric turbulence and fluid dynamics in visual data. This research integrates convolutional encoders, optical flow estimation, and advanced digital signal processing (Fourier and wavelet domain filters) with physical optics simulations and 3D geometric scene reconstruction. The goal is to accurately predict and correct refractive and flow-induced distortions in real-world imagery, with model training conducted on parallel supercomputing clusters. This work has the potential to revolutionize imaging in challenging environmental conditions.
+    </div>
+
+    <div class="event">
+      <span class="date">2024</span> – <strong>AI-Accelerated Hardware Design & Benchmarking</strong><br>
+      <em>Submitted to NeurIPS 2025</em><br>
+      Leveraging Large Language Models (LLMs) to automate the generation and verification of SystemVerilog modules for complex hardware design tasks. Developed a comprehensive benchmarking pipeline to evaluate LLM performance in hardware design, featuring automated graders that test LLM-generated modules against testbenches using open-source simulation software. This suite includes a diverse array of tasks, varying in complexity and domain-specific requirements, to thoroughly assess and advance LLM capabilities in the hardware engineering lifecycle.
     </div>
 
     <div class="event">
@@ -332,237 +332,5 @@
     <li><a href="mailto:nippuns2@illinois.edu">Email Me</a></li>
     <li><a href="https://www.linkedin.com/in/nippun-sabharwal/" target="_blank">LinkedIn</a></li>
   </ul>
-</body>
-</html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nippun Sabharwal • Portfolio</title>
-  <style>
-    /* ------- Base layout ------- */
-    :root {
-      --max-w: 880px;
-      --fg: #222;
-      --fg-light: #4a4a4a;
-      --accent: #0645ad;
-      --border: #c8c8c8;
-      --bg-chip: #f3f7ff;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      margin: 0 auto;
-      padding: 2rem 1.2rem 4rem;
-      max-width: var(--max-w);
-      line-height: 1.55;
-      color: var(--fg);
-    }
-    h1, h2, h3 { color: #303030; margin-block: 0 0.25em; }
-    h1 { font-size: 2.2rem; }
-    h2 { margin-top: 3rem; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover, a:focus { text-decoration: underline; }
-
-    /* ------- Navigation ------- */
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-block: 1.2rem 2rem;
-    }
-    .chip {
-      background: var(--bg-chip);
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.88rem;
-    }
-
-    /* ------- Project cards ------- */
-    .project {
-      border-left: 3px solid var(--border);
-      padding-left: 1rem;
-      margin-block: 1.8rem 2.2rem;
-    }
-    .meta {
-      font-size: 0.9rem;
-      color: var(--fg-light);
-      margin-bottom: 0.3rem;
-    }
-    .summary {
-      margin-bottom: 0.6rem;
-    }
-    details {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.8rem 1rem;
-      background: #fafafa;
-    }
-    details summary {
-      cursor: pointer;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      outline: none;
-    }
-    details[open] summary::after { content: "▲"; float: right; font-size: 0.7rem; }
-    details summary::after { content: "▼"; float: right; font-size: 0.7rem; }
-    ul { margin-left: 1rem; }
-    li { margin-top: 0.35rem; }
-
-    /* ------- Footer ------- */
-    footer {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.95rem;
-    }
-  </style>
-</head>
-<body>
-  <h1>Nippun Sabharwal</h1>
-  <p class="meta">Engineer, Researcher, Builder</p>
-
-  <!-- Quick navigation for busy readers -->
-  <nav aria-label="Section links">
-    <a href="#projects" class="chip">Projects</a>
-    <a href="#links" class="chip">Links</a>
-  </nav>
-
-  <main>
-    <h2 id="projects">Selected Projects</h2>
-
-    <!-- 1. Multimodal Robotic World Model -->
-    <section class="project" id="robotic-world-model">
-      <h3>2024 · Multimodal Robotic World Model</h3>
-      <p class="summary">Unified sensor and teleoperation model that accelerates robot skill learning and enables safer collaboration between humans and robots.</p>
-      <details>
-        <summary>Technical details</summary>
-        <ul>
-          <li>Combines visual, force, and proprioceptive inputs in a single transformer based policy.</li>
-          <li>Leverages imitation learning and self supervised objectives to reduce real robot data requirements by ten times compared with baseline approaches.</li>
-          <li>Implements a differentiable kinematics layer for sensor to actuator alignment, permitting zero shot transfer across robot embodiments.</li>
-          <li>Stack: PyTorch, CUDA, ROS2, Isaac Sim, 32 GPU Slurm cluster.</li>
-        </ul>
-      </details>
-    </section>
-
-    <!-- 2. Physics based dynamic scene reconstruction -->
-    <section class="project" id="scene-recon">
-      <h3>Physics Based Dynamic Scene Reconstruction (AAAI 2025 submission)</h3>
-      <p class="summary">Unsupervised, physics informed deep learning framework that models and corrects atmospheric turbulence and fluid induced distortions in imagery.</p>
-      <details>
-        <summary>Technical details</summary>
-        <ul>
-          <li>Integrates convolutional encoders, optical flow estimation, and Fourier / wavelet filtering with physical optics simulation.</li>
-          <li>Reconstructs 3D geometry by jointly estimating depth and refractive index gradients.</li>
-          <li>Training carried out on a 512 GPU supercomputing cluster using mixed precision data parallelism.</li>
-          <li>Outperforms state of the art by 3 dB PSNR on the HazeBench benchmark while running at 40 FPS.</li>
-        </ul>
-      </details>
-    </section>
-
-    <!-- 3. AI accelerated hardware design -->
-    <section class="project" id="ai-hw-design">
-      <h3>2024 · AI Accelerated Hardware Design and Benchmarking (NeurIPS 2025)</h3>
-      <p class="summary">Uses large language models to automatically generate and verify SystemVerilog modules, streamlining the hardware design cycle.</p>
-      <details>
-        <summary>Technical details</summary>
-        <ul>
-          <li>Created a graded task suite ranging from arithmetic units to cache controllers with reference testbenches.</li>
-          <li>Pipeline compiles LLM output, simulates in Verilator, and reports functional and timing metrics.</li>
-          <li>Gradient boosted scoring aggregates coverage, latency, area, and power into a single leaderboard metric.</li>
-          <li>Open sourced at <a href="https://github.com/nippun-sabharwal/hw-llm-bench" target="_blank" rel="noopener">GitHub</a>.</li>
-        </ul>
-      </details>
-    </section>
-
-    <!-- 4. VR teleoperation -->
-    <section class="project" id="vr-teleop">
-      <h3>2024 · VR Based Robot Teleoperation Interface</h3>
-      <p class="summary"><a href="https://youtu.be/zHB2BcJn3Ps" target="_blank" rel="noopener">Video demo</a> shows intuitive head driven control with sub degree accuracy across 3,000 mile networks.</p>
-      <details>
-        <summary>Technical details</summary>
-        <ul>
-          <li>Head pose captured at 60 Hz from Oculus headset, converted to neck joint commands via ROS.</li>
-          <li>ZED Mini stereo RGBD stream delivered to Unity with under 60 ms round trip latency.</li>
-          <li>Adaptive Kalman filter smooths jitter while preserving responsiveness for precise manipulation.</li>
-          <li>Modular Unity ROS Dynamixel stack supports rapid reconfiguration for different robot bodies.</li>
-        </ul>
-      </details>
-    </section>
-
-    <!-- 5. KTFS & RISC V kernel -->
-    <section class="project" id="ktfs">
-      <h3>2025 · RISC V Kernel and KTFS Journaling Filesystem</h3>
-      <p class="summary">Full Unix style kernel in C and a write ahead journaling filesystem, built from scratch for QEMU RISC V.</p>
-      <details>
-        <summary>Technical details</summary>
-        <ul>
-          <li>Bootloader, trap handler, Sv39 virtual memory with demand paging.</li>
-          <li>Syscalls: open, close, read, write, exec, fork, wait, fscreate, fsdelete, ioctl, usleep.</li>
-          <li>KTFS: block based design with two phase commit journal, multi level indirection, mountable via VirtIO or in memory driver.</li>
-          <li>Drivers: UART, RTC, PLIC, VirtIO block and RNG, GPIO, SPI, servo.</li>
-          <li>Write back block cache with configurable associativity, thread safe via ticket spinlocks.</li>
-          <li>Automated test suite and gdb scripts validate kernel correctness.</li>
-          <li>Source code: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank" rel="noopener">ktfs on GitHub</a>.</li>
-        </ul>
-      </details>
-    </section>
-
-    <!-- 6. 16 bit CPU -->
-    <section class="project" id="svcpi">
-      <h3>2024 · Fully Functional 16‑bit CPU Core</h3>
-      <p class="summary">Implemented SLC 3 ISA in SystemVerilog and verified on a Spartan 7 FPGA board.</p>
-      <details>
-        <summary>Technical details</summary>
-        <ul>
-          <li>Three stage fetch decode execute pipeline with hazard free forwarding.</li>
-          <li>Memory mapped UART, switches, and seven segment displays using on chip BRAM.</li>
-          <li>Finite state machine control unit sequences ALU and memory operations.</li>
-          <li>Achieved timing closure at 50 MHz, design files at <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank" rel="noopener">GitHub</a>.</li>
-        </ul>
-      </details>
-    </section>
-
-    <!-- 7. DoorGuardian -->
-    <section class="project" id="doorguardian">
-      <h3>2023 · DoorGuardian Autonomous Security System</h3>
-      <p class="summary">Keyless access system using Arduino, ESP32, and Telegram bot. Enables remote door control with live video verification.</p>
-      <details>
-        <summary>Technical details</summary>
-        <ul>
-          <li>HC SR04 ultrasonic sensor triggers OV7670 camera capture and low power wake up.</li>
-          <li>Image forwarded over UART to PC, streamed to Telegram for owner decision.</li>
-          <li>ESP32 actuates SG90 servos on owner command, closing feedback loop in under three seconds.</li>
-          <li>Repository: <a href="https://github.com/nippun-live/DoorGuardian-Autonomous-Security-System" target="_blank" rel="noopener">DoorGuardian on GitHub</a>.</li>
-        </ul>
-      </details>
-    </section>
-
-    <!-- 8. PotterMost -->
-    <section class="project" id="pottermost">
-      <h3>PotterMost Fan Platform</h3>
-      <p class="summary">Scaled a Harry Potter fan community to 12,500 users and 4,000 followers, leading a team of 30 volunteers.</p>
-      <details>
-        <summary>Highlights</summary>
-        <ul>
-          <li>Developed quizzes, thematic analyses, and interactive boards that drove high engagement.</li>
-          <li>Managed content calendar and mentoring for volunteer contributors.</li>
-        </ul>
-      </details>
-    </section>
-
-  </main>
-
-  <footer id="links">
-    <h2>Links</h2>
-    <nav>
-      <a class="chip" href="https://github.com/nippun-live" target="_blank" rel="noopener">GitHub</a>
-      <a class="chip" href="mailto:nippuns2@illinois.edu">Email</a>
-      <a class="chip" href="https://www.linkedin.com/in/nippun-sabharwal/" target="_blank" rel="noopener">LinkedIn</a>
-    </nav>
-  </footer>
 </body>
 </html>
