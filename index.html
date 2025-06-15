@@ -361,18 +361,6 @@
     </div>
 
     <div class="event">
-      <span class="date">2025</span> – <strong>RISC-V OS Kernel + Filesystem + IO Drivers</strong><br>
-      GitHub: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank">github.com/nippun-sabharwal/ktfs</a>
-      <p>Developed a UNIX-style operating system kernel and a robust journaling filesystem from scratch for the RISC-V architecture. This project demonstrates helped build my skill in low-level systems programming and OS design. Highlights include:</p>
-      <ul>
-        <li><strong>UNIX-style Kernel in C</strong>: Implemented core OS functionalities including a bootloader, trap handling, Sv39 virtual memory with demand paging, and process abstraction. Supports essential user-mode syscalls (open, close, read, write, ioctl, exec, fork, wait, usleep, fscreate, fsdelete). Created cooperative and preemptive threading models using condition variables and timer (mtime) interrupts. </li>
-        <li><strong>Custom Filesystem + Efficient Block Cache Layer</strong>: Engineered a block-based filesystem with a write-ahead journal for metadata consistency and robust crash recovery. Features support for create, read, write, delete, flush operations, and multi-level indirection. Mountable via VirtIO block device or an in-memory “memio” for rapid testing. Implemented a write-back cache with configurable associativity, significantly reducing I/O latency for both filesystem and block operations while ensuring data consistency through the journaling mechanism.</li>
-        <li><strong>Device Drivers & MMIO</strong>: Developed drivers for UART (polling & interrupt-driven), Real-Time Clock (RTC), Platform-Level Interrupt Controller (PLIC), VirtIO block & RNG devices (with custom ISR integration), and GPIO, SPI interfaces for embedded peripherals.</li>
-        <li><strong>Games! </strong>: Built a unified I/O interface to load and execute ELF binaries (e.g., Star Trek game) on QEMU RISC-V, validated by automated tests for correct loading, execution, and system-call handling.</li>
-      </ul>
-    </div>
-
-    <div class="event">
       <span class="date">2024</span> – <strong>System on Chip: 16-bit CPU Core + Graphics Controller</strong><br>
       GitHub: <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank">github.com/nippun-sabharwal/svcpu</a>
       <p>Designed and implemented a 16-bit CPU based on a reduced instruction set, x86-inspired ISA in SystemVerilog, showcasing end-to-end expertise from ISA specification through to FPGA verification. Key features:</p>
@@ -381,6 +369,18 @@
         <li><strong>Memory-Mapped I/O & BRAM Integration</strong>: Mapped UART, switches, and seven-segment displays into the CPU's address space utilizing on-chip Spartan-7 Block RAM (BRAM), efficiently handling read/write timing without requiring an external “ready” signal.</li>
         <li><strong>Graphics Controller</strong>: Developed an IP-core-based HDMI graphics controller for 80×30 character text rendering over AXI4 on Vivado IP Integrator.  Implemented monochrome and color text output using VRAM and font ROM, supporting inverse text and palette-based coloring.</li>
         <li><strong>FPGA Verification</strong>: Successfully synthesized and achieved timing closure for the design in Vivado, deploying and verifying stable operation at 50 MHz on a Xilinx Spartan-7 FPGA board.</li>
+      </ul>
+    </div>
+
+    <div class="event">
+      <span class="date">2025</span> – <strong>RISC-V OS Kernel + Filesystem + IO Drivers</strong><br>
+      GitHub: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank">coming soon</a>
+      <p>Developed a UNIX-style operating system kernel and a robust journaling filesystem from scratch for the RISC-V architecture. This project demonstrates helped build my skill in low-level systems programming and OS design. Highlights include:</p>
+      <ul>
+        <li><strong>UNIX-style Kernel in C</strong>: Implemented core OS functionalities including a bootloader, trap handling, Sv39 virtual memory with demand paging, and process abstraction. Supports essential user-mode syscalls (open, close, read, write, ioctl, exec, fork, wait, usleep, fscreate, fsdelete). Created cooperative and preemptive threading models using condition variables and timer (mtime) interrupts. </li>
+        <li><strong>Custom Filesystem + Efficient Block Cache Layer</strong>: Engineered a block-based filesystem with a write-ahead journal for metadata consistency and robust crash recovery. Features support for create, read, write, delete, flush operations, and multi-level indirection. Mountable via VirtIO block device or an in-memory “memio” for rapid testing. Implemented a write-back cache with configurable associativity, significantly reducing I/O latency for both filesystem and block operations while ensuring data consistency through the journaling mechanism.</li>
+        <li><strong>Device Drivers & MMIO</strong>: Developed drivers for UART (polling & interrupt-driven), Real-Time Clock (RTC), Platform-Level Interrupt Controller (PLIC), VirtIO block & RNG devices (with custom ISR integration), and GPIO, SPI interfaces for embedded peripherals.</li>
+        <li><strong>Games! </strong>: Built a unified I/O interface to load and execute ELF binaries (e.g., Star Trek game) on QEMU RISC-V, validated by automated tests for correct loading, execution, and system-call handling.</li>
       </ul>
     </div>
 
