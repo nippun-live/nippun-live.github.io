@@ -350,6 +350,19 @@
 
   <div class="proj">
     <div class="proj-head">
+      <span class="proj-title">Photorealistic Sim-to-Real via 3D Gaussian Splatting + MuJoCo</span>
+      <span class="proj-date">2025</span>
+    </div>
+    <p class="proj-desc">The visual sim-to-real gap is the biggest bottleneck in scaling robot learning: policies trained on flat-shaded MuJoCo scenes fail against real-world lighting and textures. This project fuses a photorealistic 3D Gaussian Splat of a real lab with MuJoCo physics so robot policies train in an environment that looks real and behaves real, tackling the same visual grounding problem that labs like Physical Intelligence, Google DeepMind, and Toyota Research Institute are racing to solve.</p>
+    <ul class="proj-details">
+      <li><strong>3DGS–Physics Alignment:</strong> ICP registration pipeline aligning a real-world Gaussian Splat capture (iPhone LiDAR + COLMAP) of an ALOHA bimanual setup with its MuJoCo twin, achieving <strong>7.0 mm RMSE</strong> via point-to-plane ICP with Tukey robust loss and adaptive voxel downsampling.</li>
+      <li><strong>Real-Time Composite Rendering:</strong> MuJoCo robot foreground (segmentation mask) + custom NumPy Gaussian rasterizer background at <strong>30–60 FPS</strong> across 7+ viewpoints including wrist cameras.</li>
+      <li><strong>Policy-Ready API:</strong> Observation interface matching the real ALOHA multi-camera topology, outputting dicts compatible with <a href="https://github.com/huggingface/lerobot" target="_blank">LeRobot</a> and OpenPI policy servers for direct sim-to-real transfer.</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
       <span class="proj-title">WallE: VR-Based Robot Teleoperation Interface</span>
       <span class="proj-date">2024</span>
     </div>
@@ -382,6 +395,34 @@
     </div>
     <p class="proj-desc"><em>Submitting to AAAI 2026</em></p>
     <p class="proj-desc">Developing unsupervised, physics-informed deep learning frameworks to model and compensate for atmospheric turbulence and fluid dynamics in visual data. Integrates convolutional encoders, optical flow estimation, and advanced digital signal processing filters (Fourier and wavelet domain) with physical optics simulations and 3D geometric scene reconstruction. The system accurately predicts and corrects refractive and flow-induced distortions in real-world imagery, with potential to transform imaging in challenging environmental conditions. Model training conducted on parallel supercomputing clusters.</p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">Hybrid Robot Learning &amp; Control for Contact-Rich Manipulation</span>
+      <span class="proj-date">2025</span>
+    </div>
+    <p class="proj-desc">Deploying learned policies in the real world requires more than good imitation: it requires robustness to novel states, graceful degradation, and integration with classical perception and control. This project builds the full stack from first principles (URDFs, PD control, 3D vision) through modern imitation learning (DAgger, ResNet18 visuomotor policies), culminating in a Simplex safety architecture that achieves <strong>100% task success</strong> where vision-only (40%) and learned-only (60%) each fail, the kind of hybrid system needed for reliable real-world robot deployment.</p>
+    <ul class="proj-details">
+      <li><strong>3D Perception:</strong> RGBD → point-cloud deprojection → hand-eye calibration → HSV segmentation → DBSCAN clustering → coarse-to-fine ICP for 6-DOF pose. Multi-view fusion from 5+ cameras enables autonomous pick-and-place with <strong>zero ground-truth state</strong>.</li>
+      <li><strong>Imitation Learning + DAgger:</strong> Trained MLP (state) and ResNet18 (vision) behavioral cloning policies on 20k+ teleoperated demos. DAgger closed the covariate shift gap → <strong>80%+ success</strong> on randomized pick-and-place.</li>
+      <li><strong>Simplex Architecture (100% Success):</strong> Vision-based reactive controller (HSV dirt detection → boustrophedon paths) with automatic BC fallback. <strong>97.6% ± 2.0% cleaning, 100% success</strong> vs. 40% vision-only and 60% BC-only on 150-marker contact-rich wiping.</li>
+      <li><strong>Classical Foundations:</strong> Custom 8-joint URDF, PD waypoint controllers with SLERP orientation, boustrophedon coverage planners.</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">CUDA CNN Kernel Optimization</span>
+      <span class="proj-date">2025</span>
+    </div>
+    <p class="proj-desc">Every breakthrough in AI training and inference (FlashAttention, cuDNN, custom training kernels) comes down to someone understanding exactly how GPU hardware works. This project is that deep dive: iteratively rewriting the same CNN forward pass across 6+ kernel versions, exploiting every level of the CUDA memory hierarchy, mixed-precision arithmetic, and async execution, the same primitives that power model training infrastructure at scale.</p>
+    <ul class="proj-details">
+      <li><strong>Memory Hierarchy:</strong> Weights in <strong>constant memory</strong>, I/O tiles in <strong>shared memory</strong>, register accumulators, achieving order-of-magnitude reduction in global memory traffic.</li>
+      <li><strong>FP16 Mixed Precision + Tree Reduction:</strong> GPU performance is memory-bandwidth bound: FP16 halves memory footprint, <strong>doubling effective bandwidth</strong> and allowing 2× more data in cache. Modern GPUs (Tensor Cores, FP16 ALUs) also deliver <strong>2× compute throughput</strong> on half-precision ops. Implemented via CUDA intrinsics (<code>__half</code>, <code>__hmul</code>) with 3D thread-block tree reduction over input channels, eliminating serial loops and halving register pressure to enable higher occupancy, the same quantization strategy that makes large-scale training feasible.</li>
+      <li><strong>Tiled GEMM (im2col):</strong> Convolution re-cast as matrix multiply; 16×16 shared-memory tiled kernel with unrolled inner loops for near-peak occupancy.</li>
+      <li><strong>Streams &amp; Layer-Adaptive Dispatch:</strong> Direct conv for shallow layers, GEMM for deep layers. <strong>10 concurrent CUDA streams</strong> pipelining kernel execution with memory transfers.</li>
+    </ul>
   </div>
 
   <div class="proj">
