@@ -1,442 +1,543 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nippun Sabharwal</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #222;
-    }
-    h1, h2 {
-      color: #333;
-    }
-    .timeline {
-      border-left: 2px solid #aaa;
-      padding-left: 20px;
-      margin-top: 20px;
-    }
-    .event {
-      margin-bottom: 40px;
-    }
-    .date {
-      font-weight: bold;
-      color: #555;
-    }
-    a {
-      color: #0645AD;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
-      padding-left: 20px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Nippun Sabharwal</h1>
-  <p>Engineer | Researcher | Builder</p>
-
-  <h2>My Projects</h2>
-  <div class="timeline">
-    <div class="event">
-      <span class="date">2024</span> – <strong>Multimodal Robotic World Model</strong><br>
-      In progress<br>
-      Unified sensor+teleop AI model that accelerates robot skill learning and safe human-robot collaboration.
-    </div>
-
-    <div class="event">
-      <strong>Physics-Based Dynamic Scene Recon.</strong><br>
-      Submitting to AAAI 2025 <br>
-      Developing unsupervised, physics-informed deep learning frameworks for modeling atmospheric turbulence and fluid dynamics. Integrated convolutional encoders, optical-flow estimation, and digital-signal-processing filters (e.g., Fourier- and wavelet domain) with physical-optics simulations and 3D geometric scene reconstruction to accurately predict and correct refractive and flow-induced distortions in real-world imagery. Training on parallel supercomputing clusters.
-    </div>
-
-    <div class="event">
-      <span class="date">2024</span> – <strong>AI-Accelerated Hardware Design & Benchmarking</strong><br>
-      Submitted to NeurIPS 2025<br>
-      Using LLMs to generate and verify systemverilog modules for complex hardwaredesign tasks. Developed a benchmarking pipeline for evaluating LLMs on hardware design tasks, with build in autogreders testing LLM-generated modules with testbenches using open source simulation solftwares. The suite includes a diverse set of tasks with varying complexity and domain-specific requirements, enabling comprehensive evaluation of LLM capabilities in hardware design.
-
-    <div class="event">
-      <span class="date">2024</span> – <strong>VR-Based Robot Teleoperation Interface</strong><br>
-      Link: <a href="https://youtu.be/zHB2BcJn3Ps" target="_blank">https://youtu.be/zHB2BcJn3Ps</a>
-      <div style="margin-top: 10px">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/zHB2BcJn3Ps?si=zE-716tN5lVhJgK4"
-                title="VR-Based Robot Teleoperation Demo" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-      </div>
-      <ul>
-        <li><strong>Head-driven control</strong>: Captured 6-DOF head-pose at 60 Hz from an Oculus headset over ROS, converted to joint commands for a 2- to 3-DOF robotic neck mechanism, enabling smooth, intuitive motion via imitation learning</li>
-        <li><strong>Immersive 3D feedback</strong>: Integrated a ZED Mini stereo RGBD camera, streaming dual-view video into Unity with under 60 ms latency, giving operators natural depth perception for fine manipulation</li>
-        <li><strong>Latency management & motion smoothing</strong>: Applied ROS dampening filters and H.264/H.265 compression with 60 Hz command updates, achieving 45–60 ms round-trip delay and sub-degree motion accuracy</li>
-        <li><strong>Modular, extensible pipeline</strong>: Built a Unity–ROS–Dynamixel workflow with configurable DOF settings, easily adaptable to different robot platforms and future full-body telemanipulation</li>
-        <li><strong>Demonstrated performance</strong>: Executed remote folding and assembly tasks with ±0.5° accuracy in yaw and pitch over a 3,000-mile network, establishing a foundation for scalable imitation-learning data collection</li>
-      </ul>
-    </div>
-
-    <div class="event">
-      <span class="date">2025</span> – <strong>Full RISC-V OS Kernel & KTFS Journaling Filesystem + Drivers</strong><br>
-      GitHub: <a href="https://github.com/nippun-sabharwal/ktfs" target="_blank">github.com/nippun-sabharwal/ktfs</a>
-      <ul>
-        <li><strong>UNIX-style Kernel in C</strong>:
-          <ul>
-            <li>Bootloader, trap handling and Sv39 virtual memory with demand paging and process abstraction</li>
-            <li>User-mode syscalls: open/close/read/write/ioctl/exec/fork/wait/usleep/fscreate/fsdelete</li>
-          </ul>
-        </li>
-        <li><strong>KTFS Journaling Filesystem</strong>:
-          <ul>
-            <li>Block-based design with a write-ahead journal for metadata consistency and crash recovery</li>
-            <li>Supports create, read, write, delete, flush, and multi-level indirection</li>
-            <li>Mountable via VirtIO block device or in-memory “memio” for fast testing</li>
-          </ul>
-        </li>
-        <li><strong>Device Drivers & MMIO</strong>:
-          <ul>
-            <li>UART (polling & interrupt-driven), Real-Time Clock (RTC), Platform-Level Interrupt Controller (PLIC)</li>
-            <li>VirtIO block & VirtIO RNG devices, with custom ISR integration</li>
-            <li>GPIO, SPI and servo interfaces for embedded peripherals</li>
-          </ul>
-        </li>
-        <li><strong>Block Cache Layer</strong>:
-          <ul>
-            <li>Write-back cache with configurable associativity, reducing latency for filesystem and block I/O</li>
-            <li>Ensures data consistency with journaling mechanism</li>
-          </ul>
-        </li>
-        <li><strong>Threading & Interrupts</strong>:
-          <ul>
-            <li>Cooperative and preemptive threading using condition variables and timer (mtime) interrupts</li>
-            <li>Idle thread for power-efficient wait-for-interrupt behavior, context switching among user and kernel threads</li>
-          </ul>
-        </li>
-        <li><strong>ELF Loader & User Programs</strong>:
-          <ul>
-            <li>Unified I/O interface to load and run ELF binaries (e.g., Star Trek game) on QEMU RISC-V</li>
-            <li>Automated tests verify correct loading, execution, and system-call handling</li>
-          </ul>
-        </li>
-        <li><strong>Validation & Debugging</strong>:
-          <ul>
-            <li>Comprehensive unit tests for drivers, cache, filesystem, threading and syscalls</li>
-            <li>Debugged end-to-end on QEMU RISC-V with gdb, demonstrating robust OS functionality</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="event">
-      <span class="date">2024</span> – <strong>Fully Functional 16-bit CPU Core </strong><br>
-      GitHub: <a href="https://github.com/nippun-sabharwal/svcpu" target="_blank">github.com/nippun-sabharwal/svcpu</a>
-      <ul>
-        <li><strong>SLC-3 ISA in SystemVerilog</strong>: Implemented a 16-bit processor with 16-bit PC, IR, registers, ALU and a 3-stage fetch–decode–execute pipeline, supporting ADD, AND, NOT, BR, JMP, JSR, LDR, STR and PAUSE instructions.</li>
-        <li><strong>Control Unit FSM</strong>: Built a state-machine sequencing memory access, ALU ops and I/O interactions via a cpu_to_io bridge for on-board switches and hex displays.</li>
-        <li><strong>Memory-Mapped I/O & BRAM</strong>: Mapped UART, switches and seven-segment displays into address space using on-chip Spartan-7 block RAM, handling read/write timing without an external “ready” signal.</li>
-        <li><strong>FPGA-Verified</strong>: Synthesized and timing-closed the design in Vivado on a Xilinx Spartan-7 board, demonstrating stable operation at 50 MHz.</li>
-      </ul>
-      This project showcases end-to-end expertise from ISA specification through FPGA implementation.
-    </div>
-
-    <div class="event">
-      <span class="date">2023</span> – <strong>DoorGuardian: Autonomous Security System</strong><br>
-      Repository: <a href="https://github.com/nippun-sabharwal/remote-unlock" target="_blank">https://github.com/nippun-sabharwal/remote-unlock</a><br>
-      <em>Contributors: Nippun Sabharwal, Vayun Gupta, Siddarth Natarajan</em>
-      <ul>
-        <li><strong>Challenge</strong>: Campus and home access rely on plastic cards or keys, creating delays, extra costs and accessibility hurdles.</li>
-        <li><strong>Solution</strong>: An ultrasonic sensor wakes an Arduino UNO and OV7670 camera when someone approaches. The image streams via UART → PC → Telegram bot. The owner sends “door open”/“door close” over Telegram, and an ESP32 toggles SG90 servos to lock or unlock.</li>
-        <li><strong>Tech Stack</strong>:
-          <ul>
-            <li>Sensing & Power: HC-SR04 ultrasonic for 50 cm trigger & power-saving standby</li>
-            <li>Imaging: OV7670 camera module over UART</li>
-            <li>Control: Arduino UNO (coordination), ESP32 (Wi-Fi, Telegram API)</li>
-            <li>Actuation: SG90 servo motors as the lock mechanism</li>
-            <li>Integration: Telegram Bot via Make.com for workflow automation</li>
-          </ul>
-        </li>
-        <li><strong>Key Features</strong>: live video feed playback, automated entry/exit logs, easy face-database updates, upgradable firmware</li>
-        <li><strong>Real-World Use Cases</strong>: Airbnb hosts granting secure, keyless guest access; campus buildings offering ID-free entry; improved accessibility for users with disabilities</li>
-      </ul>
-    </div>
-
-    <div class="event">
-      <strong>PotterMost Platform</strong><br>
-      Repository: <a href="https://bit.ly/pottermost" target="_blank">https://bit.ly/pottermost</a><br>      
-      Grew a Harry Potter fan community to 12 500+ users and 4 000 social followers; led 30 volunteers to build quizzes & discussions.
-    </div>
-  </div>
-
-  <h2>Links</h2>
-  <ul>
-    <li><a href="https://github.com/nippun-live" target="_blank">GitHub</a></li>
-    <li><a href="mailto:nippuns2@illinois.edu">Email Me</a></li>
-    <li><a href="https://www.linkedin.com/in/nippun-sabharwal/" target="_blank">LinkedIn</a></li>
-  </ul>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nippun Sabharwal</title>
+  <meta name="description" content="Nippun Sabharwal, Computer Engineering @ UIUC. AI/ML, computer vision, and robotics researcher. Published at NeurIPS 2025." />
+  <meta name="keywords" content="Nippun Sabharwal, AI, ML, computer vision, robotics, UIUC, NeurIPS, research" />
+  <meta property="og:title" content="Nippun Sabharwal" />
+  <meta property="og:description" content="Computer Engineering @ UIUC. AI/ML, computer vision, and robotics researcher. Published at NeurIPS 2025." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/pfp.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+
   <style>
-    /* =========
-       Variables
-       ========= */
     :root {
-      --main-font: 'Futura', 'Trebuchet MS', Arial, sans-serif;
-      --heading-color: #333;
-      --text-color: #222;
-      --muted-color: #555;
-      --link-color: #0645AD;
-      --border-color: #ccc;
-      --project-heading-size: 1.3em;
-      --project-text-size: 1em;
-      --project-text-color: #444;
+      --serif: 'Source Serif 4', 'Georgia', serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --text: #1a1a1a;
+      --text-secondary: #444;
+      --text-muted: #777;
+      --link: #1a5fb4;
+      --link-hover: #0d47a1;
+      --accent: #b71c1c;
+      --bg: #fff;
+      --bg-alt: #f8f8f8;
+      --border: #e0e0e0;
+      --max-w: 780px;
     }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: var(--main-font);
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: var(--text-color);
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      font-size: 15px;
     }
 
-    /* ========
-       Header
-       ======== */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 36px 24px 60px;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    ::selection { background: #cce5ff; }
+
+    /* ========== HEADER ========== */
     .header {
       display: flex;
-      align-items: center;
-      margin-bottom: 40px;
+      gap: 24px;
+      align-items: flex-start;
+      margin-bottom: 28px;
     }
-    .profile-pic {
-      width: 100px;
-      height: 100px;
+    .header-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 6px;
       object-fit: cover;
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      margin-right: 20px;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
     }
-    .header-text h1 {
-      margin: 0;
-      font-size: 2em;
-      color: var(--heading-color);
+    .header-info { flex: 1; }
+    .header-info h1 {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
     }
-    .header-text .subtitle {
-      margin: 6px 0 12px;
-      font-size: 1.1em;
-      color: var(--muted-color);
+    .header-info .affiliation {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
     }
-    .contact-links {
+    .header-links {
       list-style: none;
-      padding: 0;
-      margin: 0;
       display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      font-size: 0.88rem;
     }
-    .contact-links li {
-      margin-right: 16px;
+    .header-links a { font-weight: 500; }
+
+    /* ========== BIO ========== */
+    .bio {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 32px;
     }
-    .contact-links a {
-      color: var(--link-color);
-      text-decoration: none;
-      font-size: 1em;
-    }
-    .contact-links a:hover {
-      text-decoration: underline;
+    .bio strong { color: var(--text); font-weight: 600; }
+
+    /* ========== SECTION HEADINGS ========== */
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 32px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--text);
     }
 
-    /* =========
-       Timeline
-       ========= */
-    h2 {
-      color: var(--heading-color);
-      margin-top: 40px;
-      margin-bottom: 20px;
-      font-size: 1.6em;
+    /* ========== NEWS / HIGHLIGHTS ========== */
+    .news-list {
+      list-style: none;
+      font-size: 0.9rem;
     }
-    .timeline {
-      border-left: 2px solid var(--border-color);
-      padding-left: 20px;
+    .news-list li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 6px;
+      line-height: 1.55;
     }
-    .event {
-      margin-bottom: 40px;
+    .news-date {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      min-width: 72px;
+      flex-shrink: 0;
+      padding-top: 2px;
     }
-    .event .date {
-      font-weight: bold;
-      color: var(--muted-color);
+
+    /* ========== PUBLICATIONS ========== */
+    .pub {
+      margin-bottom: 18px;
+      font-size: 0.92rem;
+      line-height: 1.6;
     }
-    /*
-    .event strong {
-      font-size: var(--project-heading-size);
-      color: var(--heading-color);
-      margin-left: 6px;
+    .pub-title {
+      font-weight: 600;
+      color: var(--text);
     }
-      */
-    event > strong {
-      font-size: var(--project-heading-size);
-      color: var(--heading-color);
-      margin-left: 6px;
+    .pub-authors {
+      color: var(--text-secondary);
     }
-    /* 2) Keep bullet-point <strong> at normal text size */
-    .event ul li strong {
-      font-size: var(--project-text-size);
-      color: var(--project-text-color);
+    .pub-authors .me {
+      font-weight: 600;
+      color: var(--text);
     }
-    .event em,
-    .event p {
-      color: var(--project-text-color);
-      font-size: var(--project-text-size);
-      margin: 8px 0;
+    .pub-venue {
+      font-style: italic;
+      color: var(--text-secondary);
     }
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
-      padding-left: 20px;
+    .pub-links {
+      font-size: 0.82rem;
+      margin-top: 2px;
     }
-    ul li {
-      color: var(--project-text-color);
-      font-size: var(--project-text-size);
+    .pub-links a {
+      margin-right: 12px;
+      font-weight: 500;
+    }
+
+    /* ========== EXPERIENCE ========== */
+    .exp {
+      margin-bottom: 16px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .exp-title {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .exp-date {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .exp-role {
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+    .exp-details {
+      list-style: disc;
+      padding-left: 18px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+    .exp-details li {
+      margin-bottom: 3px;
+    }
+
+    /* ========== PROJECTS ========== */
+    .proj {
+      margin-bottom: 16px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .proj-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .proj-title {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .proj-date {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .proj-desc {
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    .proj-details {
+      list-style: disc;
+      padding-left: 18px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+    .proj-details li { margin-bottom: 3px; }
+    .proj-links {
+      font-size: 0.82rem;
+      margin-top: 3px;
+    }
+    .proj-links a { margin-right: 12px; font-weight: 500; }
+
+    .video-inline {
+      margin: 10px 0;
+      width: 100%;
+    }
+    .video-inline iframe {
+      width: 100%;
+      height: 315px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    /* ========== SKILLS ========== */
+    .skills-row {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
       margin-bottom: 6px;
     }
-    a {
-      color: var(--link-color);
+    .skills-row strong {
+      color: var(--text);
+      font-weight: 600;
+      min-width: 120px;
+      display: inline-block;
     }
-    a:hover {
-      text-decoration: underline;
+
+    /* ========== FOOTER ========== */
+    .footer {
+      margin-top: 48px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 600px) {
+      .header { flex-direction: column; gap: 16px; }
+      .header-pic { width: 90px; height: 90px; }
+      .header-info h1 { font-size: 1.5rem; }
+      .exp-head, .proj-head { flex-direction: column; gap: 0; }
+      .video-inline iframe { height: 200px; }
     }
   </style>
 </head>
 <body>
+<div class="container">
 
-  <header class="header">
-    <img src="images/pfp.jpg" alt="Nippun Sabharwal" class="profile-pic">
-    <div class="header-text">
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <img src="images/pfp.jpg" alt="Nippun Sabharwal" class="header-pic" />
+    <div class="header-info">
       <h1>Nippun Sabharwal</h1>
-      <p class="subtitle">Computer Engg @ UIUC, AI @ Astrazeneca, Love to build</p>
-      <ul class="contact-links">
+      <p class="affiliation">B.S. Computer Engineering · University of Illinois at Urbana-Champaign · Grainger College of Engineering</p>
+      <ul class="header-links">
+        <li><a href="mailto:nippuns2@illinois.edu">nippuns2@illinois.edu</a></li>
         <li><a href="https://github.com/nippun-live" target="_blank">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/nippun-sabharwal/" target="_blank">LinkedIn</a></li>
         <li><a href="https://scholar.google.com/citations?user=PHsvV0wAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
-        <li><a href="https://www.researchgate.net/profile/Nippun-Sabharwal?ev=hdr_xprf" target="_blank">ResearchGate</a></li>
-        <li><a href="resume.pdf" target="_blank">Resume</a></li>
-        <li><a href="mailto:nippuns2@illinois.edu">Email Me</a></li>
+        <li><a href="resume.pdf" target="_blank">CV</a></li>
       </ul>
-    </div>
-  </header>
-
-  <h2>Published Papers</h2>
-  <div class="timeline">
-    <div class="event">
-      <span class="date">2025</span> – <strong>Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs</strong><br>
-      <em>Guo, X., Li, Y., Kong, X., Sabharwal, N., et al. (2025). Proceedings of the 39th Conference on Neural Information Processing Systems (NeurIPS 2025)</em><br>
-      In this work, we introduce ENGDESIGN, an Engineering Design benchmark that evaluates LLMs' abilities to perform practical design tasks across nine engineering domains. 
-      I created the systematic evaluation for assessing perfromance on complex hardware design synthesis, benchmarking models across hierarchical SystemVerilog tasks (sequential logic, memory structures, encoding schemes). Architected closed-loop agentic system with automated verification pipeline integrating simulation and synthesis tools. <a href="https://neurips.cc/virtual/2025/poster/121598" target="_blank">https://neurips.cc/virtual/2025/poster/121598</a>. Also available as arXiv preprint <a href="https://arxiv.org/abs/2509.16204" target="_blank">arXiv:2509.16204</a>.
     </div>
   </div>
 
-  <h2>My Projects</h2>
-  <div class="timeline">
-    <div class="event">
-      <span class="date">2024</span> – <strong>Multimodal Robotic World Model</strong><br>
-      <em>In progress</em><br>
-      Project developing a unified sensor and teleoperation AI model designed to accelerate robotic perception and and enable safer, more intuitive human-robot collaboration. This project aims to create robots that can learn complex tasks more efficiently by understanding and interacting with their environment through diverse sensory inputs and human guidance.
-    </div>
+  <!-- ===== BIO ===== -->
+  <p class="bio">
+    I build systems that perceive, learn, and act in the physical world. My interests span <strong>robot learning</strong> (world models, imitation learning, teleoperation), <strong>computer vision</strong> (3D reconstruction, physics-informed restoration, NeRFs), and <strong>AI systems</strong> (LLM agents, benchmarking, CUDA optimization). I've worked on <strong>world models and humanoid control at a robotics startup</strong>, published at <strong>NeurIPS 2025</strong>, and currently conduct vision research at the <strong>National Center for Supercomputing Applications</strong>. I also enjoy building from first principles: I've written an OS kernel, designed CPUs, and built VR teleoperation pipelines for data collection.
+  </p>
 
-    <div class="event">
-      <span class="date">2024</span> – <strong>WallE: VR Based Robot Teleoperation Interface</strong><br>
-      Link: <a href="https://youtu.be/zHB2BcJn3Ps" target="_blank">Demo</a>
-      <div style="margin-top: 10px">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/zHB2BcJn3Ps?si=zE-716tN5lVhJgK4"
-                title="VR-Based Robot Teleoperation Demo" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-      </div>
-      <p>Engineered an intuitive VR teleoperation system that enables precise, real-time remote robot control by translating head movements into robot actions and providing immersive 3D visual feedback for enhanced depth perception. Key achievements include:</p>
-      <ul>
-        <li><strong>Real-time Head-Driven Control</strong>: Captured 3-DOF head-pose at 60 Hz from an Oculus headset via ROS, translating movements into joint commands for a multi-DOF robotic neck. This facilitates smooth, natural robot motion through imitation learning.</li>
-        <li><strong>Immersive 3D Visual Feedback</strong>: Integrated a stereo RGBD camera, streaming dual-view video into the Occulus, completeing a closed loop where headset user can look at Robot's envirnoment and reptely perform actions, getting immediate feeback. This provides operators with crucial depth perception for performing fine manipulation tasks.</li>
-        <li><strong>Modular & Extensible Architecture</strong>: Designed a Unity-ROS-Dynamixel workflow with configurable DOF settings, ensuring adaptability to various robot platforms and paving the way for future full-body telemanipulation capabilities. Implemented ROS dampening filters and H.264/H.265 video compression, achieving 60 Hz command updates. This resulted in a low round-trip delay of 45–60 ms and sub-degree motion accuracy, critical for effective teleoperation. Successfully executed neck movements and remote folding tasks, establishing a robust foundation for scalable imitation-learning data collection and complex remote operations.</li>
-      </ul>
-      <p style="font-size: 0.9em; color: var(--muted-color); margin-top: 10px;"><em>STL file credit: <a href="https://github.com/OpenTeleVision/TeleVision?tab=readme-ov-file" target="_blank">https://github.com/OpenTeleVision/TeleVision</a></em></p>
-    </div>
+  <!-- ===== NEWS ===== -->
+  <h2>News</h2>
+  <ul class="news-list">
+    <li><span class="news-date">Sep 2025</span> <span>Paper accepted at <strong>NeurIPS 2025</strong>: "Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs"</span></li>
+    <li><span class="news-date">Aug 2025</span> <span>Joined a <strong>stealth robotics startup</strong> in SF working on world models, CUDA kernel optimization, and Unitree G1 humanoid control</span></li>
+    <li><span class="news-date">May 2025</span> <span>Started as <strong>ML Intern at AstraZeneca</strong>, built RAG agents for large-scale pharma data access</span></li>
+    <li><span class="news-date">Jan 2025</span> <span>Started as <strong>Computer Vision Researcher at NCSA and CSL</strong> with <a href="https://scholar.google.com/citations?user=dY7OSl0AAAAJ&hl=en" target="_blank">Prof. Narendra Ahuja</a>, atmospheric turbulence restoration with physics-informed deep learning</span></li>
+    <li><span class="news-date">2024</span> <span>Awarded <strong>Samsung Engineering Scholarship</strong>, <strong>Illinois Outstanding Scholarship</strong>, and <strong>Illinois Engg Achievement Scholarship</strong></span></li>
+  </ul>
 
-    <div class="event">
-      <span class="date">2024</span> – <strong>System on Chip: 16-bit CPU Core + Graphics Controller</strong><br>
-      GitHub: <a href="https://github.com/nippun-live/svcpu" target="_blank">github.com/nippun-live/svcpu</a>
-      <p>Designed and implemented a 16-bit CPU based on a reduced instruction set, x86-inspired ISA in SystemVerilog, showcasing end-to-end expertise from ISA specification through to FPGA verification. Key features:</p>
-      <ul>
-        <li><strong>ISA Implementation</strong>: Developed a 16-bit processor featuring a 16-bit Program Counter (PC), Instruction Register (IR), general-purpose registers, ALU, and a 3-stage fetch–decode–execute pipeline. Supports core instructions including ADD, AND, NOT, BR, JMP, JSR, LDR, STR, and PAUSE. Constructed a state-machine to precisely sequence memory access, ALU operations, and I/O interactions via a custom `cpu_to_io` bridge, interfacing with on-board switches and hexadecimal displays.</li>
-        <li><strong>Memory-Mapped I/O & BRAM Integration</strong>: Mapped UART, switches, and seven-segment displays into the CPU's address space utilizing on-chip Spartan-7 Block RAM (BRAM), efficiently handling read/write timing without requiring an external “ready” signal.</li>
-        <li><strong>Graphics Controller</strong>: Developed an IP-core-based HDMI graphics controller for 80×30 character text rendering over AXI4 on Vivado IP Integrator.  Implemented monochrome and color text output using VRAM and font ROM, supporting inverse text and palette-based coloring.</li>
-        <li><strong>FPGA Verification</strong>: Successfully synthesized and achieved timing closure for the design in Vivado, deploying and verifying stable operation at 50 MHz on a Xilinx Spartan-7 FPGA board.</li>
-      </ul>
-    </div>
+  <!-- ===== PUBLICATIONS ===== -->
+  <h2>Publications</h2>
 
-    <div class="event">
-      <span class="date">2025</span> – <strong>RISC-V OS Kernel + Filesystem + IO Drivers</strong><br>
-      GitHub: <a href="https://github.com/nippun-live/riscvos" target="_blank">github.com/nippun-live/riscvos</a>
-      <p>Developed a UNIX-style operating system kernel and a robust journaling filesystem from scratch for the RISC-V architecture. This project demonstrates helped build my skill in low-level systems programming and OS design. Highlights include:</p>
-      <ul>
-        <li><strong>UNIX-style Kernel in C</strong>: Implemented core OS functionalities including a bootloader, trap handling, Sv39 virtual memory with demand paging, and process abstraction. Supports essential user-mode syscalls (open, close, read, write, ioctl, exec, fork, wait, usleep, fscreate, fsdelete). Created cooperative and preemptive threading models using condition variables and timer (mtime) interrupts. </li>
-        <li><strong>Custom Filesystem + Efficient Block Cache Layer</strong>: Engineered a block-based filesystem with a write-ahead journal for metadata consistency and robust crash recovery. Features support for create, read, write, delete, flush operations, and multi-level indirection. Mountable via VirtIO block device or an in-memory “memio” for rapid testing. Implemented a write-back cache with configurable associativity, significantly reducing I/O latency for both filesystem and block operations while ensuring data consistency through the journaling mechanism.</li>
-        <li><strong>Device Drivers & MMIO</strong>: Developed drivers for UART (polling & interrupt-driven), Real-Time Clock (RTC), Platform-Level Interrupt Controller (PLIC), VirtIO block & RNG devices (with custom ISR integration), and GPIO, SPI interfaces for embedded peripherals.</li>
-        <li><strong>Games! </strong>: Built a unified I/O interface to load and execute ELF binaries (e.g., Star Trek game, Doom, Rogue, Zork) on QEMU RISC-V, validated by automated tests for correct loading, execution, and system-call handling.</li>
-      </ul>
-    </div>
-
-        <div class="event">
-      <strong>Physics-Based Dynamic Scene Reconstruction</strong><br>
-      <em>Submitting to AAAI 2025</em><br>
-      Using unsupervised, physics-informed deep learning frameworks to model and compensate for atmospheric turbulence and fluid dynamics in visual data. This research integrates convolutional encoders, optical flow estimation, and advanced digital signal processing (Fourier and wavelet domain filters) with physical optics simulations and 3D geometric scene reconstruction. The goal is to accurately predict and correct refractive and flow-induced distortions in real-world imagery, with model training conducted on parallel supercomputing clusters. This work has the potential to revolutionize imaging in challenging environmental conditions.
-    </div>
-
-    <div class="event">
-      <span class="date">2024</span> – <strong>AI-Accelerated Hardware Design & Benchmarking</strong><br>
-      <em>Submitted to NeurIPS 2025</em><br>
-      Leveraging Large Language Models to automate the generation and verification of SystemVerilog modules for complex hardware design tasks. Developed a comprehensive benchmarking pipeline to evaluate LLM performance in hardware design, featuring automated graders that test LLM-generated modules against testbenches using open-source simulation software. This suite includes a diverse array of tasks, varying in complexity and domain-specific requirements, to thoroughly assess and advance LLM capabilities in the hardware engineering lifecycle.
-    </div>
-
-    <div class="event">
-      <span class="date">2023</span> – <strong>DoorGuardian: Autonomous Security System</strong><br>
-      Repository: <a href="https://github.com/nippun-live/DoorGuardian-Autonomous-Security-System" target="_blank">https://github.com/nippun-live/DoorGuardian-Autonomous-Security-System</a><br>
-      <em>Contributors: Nippun Sabharwal, Vayun Gupta, Siddarth Natarajan</em>
-      <p>Developed an innovative autonomous security system to modernize access control, addressing the inefficiencies of traditional key/card-based systems.</p>
-      <ul>
-        <li><strong>Problem Addressed</strong>: Traditional campus and home access methods relying on physical cards or keys often lead to delays, additional costs, and accessibility challenges.</li>
-        <li><strong>Innovative Solution</strong>: DoorGuardian employs an ultrasonic sensor (HC-SR04) to detect approaching individuals, triggering an Arduino UNO and OV7670 camera. The captured image is streamed via UART to a PC and then to a Telegram bot. Property owners can remotely grant access by sending “door open” or “door close” commands via Telegram, which an ESP32 then uses to actuate SG90 servo motors, locking or unlocking the door.</li>
-        <li><strong>Technology Stack</strong>:
-          <ul>
-            <li>Sensing & Power Management: HC-SR04 ultrasonic sensor (50 cm trigger range) for motion detection and power-saving standby mode.</li>
-            <li>Imaging: OV7670 camera module interfaced over UART.</li>
-            <li>Core Control: Arduino UNO for system coordination, ESP32 for Wi-Fi connectivity and Telegram API interaction.</li>
-            <li>Actuation: SG90 servo motors for the physical locking mechanism.</li>
-            <li>Workflow Automation: Telegram Bot integrated via Make.com for seamless remote control.</li>
-          </ul>
-        </li>
-        <li><strong>Key Features & Impact</strong>: Provides a live video feed for verification, automated entry/exit logs for security monitoring, an easily updatable face database, and firmware that can be upgraded for future enhancements. This system offers significant real-world benefits, such as secure keyless access for Airbnb guests, ID-free entry for campus buildings, and improved accessibility for users with disabilities.</li>
-      </ul>
-    </div>
-
-    <div class="event">
-      <span class="date">2018</span> – <strong>PotterMost Platform </strong><br>
-
-      Website: <a href="https://bit.ly/pottermost" target="_blank">https://bit.ly/pottermost</a><br>      
-      This was my first project! Successfully cultivated and scaled a vibrant Harry Potter fan community to over 12,500 registered users and 4,000+ social media followers. Led and coordinated a team of 30 volunteers to develop engaging content, including quizzes and discussion forums, fostering a highly active and interactive online platform. This demonstrates strong leadership, community management, and content strategy skills.
+  <div class="pub">
+    <span class="pub-title">Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs</span><br />
+    <span class="pub-authors">X. Guo, Y. Li, X. Kong, <span class="me">N. Sabharwal</span>, et al.</span><br />
+    <span class="pub-venue">Proceedings of the 39th Conference on Neural Information Processing Systems (NeurIPS 2025)</span>
+    <div class="pub-links">
+      <a href="https://arxiv.org/abs/2509.16204" target="_blank">[arXiv]</a>
+      <a href="https://neurips.cc/virtual/2025/poster/121598" target="_blank">[Poster]</a>
     </div>
   </div>
+
+  <div class="pub">
+    <span class="pub-title">Physics-Based Dynamic Scene Reconstruction for Atmospheric Turbulence Correction</span><br />
+    <span class="pub-authors"><span class="me">N. Sabharwal</span>, et al.</span><br />
+    <span class="pub-venue">In preparation, target: AAAI 2026</span>
+  </div>
+
+  <!-- ===== SELECTED PROJECTS ===== -->
+  <h2>Selected Projects</h2>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">Multimodal Robotic World Model</span>
+      <span class="proj-date">2024 – present</span>
+    </div>
+    <p class="proj-desc"><em>In progress</em></p>
+    <p class="proj-desc">Developing a unified sensor and teleoperation AI model that fuses vision, proprioception, and human demonstration data to accelerate robot skill acquisition. The model enables robots to build internal world representations from diverse sensory inputs and operator guidance, allowing them to learn complex manipulation tasks with significantly less data and safer, more intuitive human-robot collaboration.</p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">WallE: VR-Based Robot Teleoperation Interface</span>
+      <span class="proj-date">2024</span>
+    </div>
+    <p style="margin-top: 6px; margin-bottom: 10px; font-size: 0.88rem;">
+      Link: <a href="https://youtu.be/zHB2BcJn3Ps" target="_blank">https://youtu.be/zHB2BcJn3Ps</a>
+    </p>
+    <div class="video-inline">
+      <iframe src="https://www.youtube.com/embed/zHB2BcJn3Ps?si=zE-716tN5lVhJgK4"
+              title="VR Teleoperation Demo" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
+    <p class="proj-desc"><em>Contributors: Nippun Sabharwal, Shreyanka Sinha</em></p>
+    <p class="proj-desc">Engineered an intuitive VR teleoperation system that enables precise, real-time remote robot control by translating head movements into robot actions and providing immersive 3D visual feedback for enhanced depth perception.</p>
+    <ul class="proj-details">
+      <li><strong>Real-Time Head-Driven Control:</strong> Captured 3-DOF head-pose at 60 Hz from an Oculus headset via ROS, translating movements into joint commands for a multi-DOF robotic neck. This facilitates smooth, natural robot motion through imitation learning.</li>
+      <li><strong>Immersive 3D Visual Feedback:</strong> Integrated a stereo RGBD camera, streaming dual-view video into the Oculus, completing a closed loop where the headset user sees the robot's environment and can repeatedly perform actions with immediate feedback, providing operators with crucial depth perception for fine manipulation tasks.</li>
+      <li><strong>Modular &amp; Extensible Architecture:</strong> Designed a Unity–ROS–Dynamixel workflow with configurable DOF settings, ensuring adaptability to various robot platforms and paving the way for future full-body telemanipulation. Implemented ROS dampening filters and H.264/H.265 video compression, achieving 60 Hz command updates with 45–60 ms round-trip delay and sub-degree motion accuracy.</li>
+      <li><strong>Demonstrated Results:</strong> Successfully executed remote folding and assembly tasks over a 3,000-mile network. Trained imitation learning policies for long-horizon tasks (sorting, insertion, folding), cutting fine manipulation time by ~30%, establishing a robust foundation for scalable imitation-learning data collection.</li>
+    </ul>
+    <p style="font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-top: 8px;">
+      STL credit: <a href="https://github.com/OpenTeleVision/TeleVision" target="_blank">OpenTeleVision</a>
+    </p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">Physics-Based Dynamic Scene Reconstruction</span>
+      <span class="proj-date">2024 – 2025</span>
+    </div>
+    <p class="proj-desc"><em>Submitting to AAAI 2026</em></p>
+    <p class="proj-desc">Developing unsupervised, physics-informed deep learning frameworks to model and compensate for atmospheric turbulence and fluid dynamics in visual data. Integrates convolutional encoders, optical flow estimation, and advanced digital signal processing filters (Fourier and wavelet domain) with physical optics simulations and 3D geometric scene reconstruction. The system accurately predicts and corrects refractive and flow-induced distortions in real-world imagery, with potential to transform imaging in challenging environmental conditions. Model training conducted on parallel supercomputing clusters.</p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">AI-Accelerated Hardware Design &amp; Benchmarking</span>
+      <span class="proj-date">2024</span>
+    </div>
+    <p class="proj-desc"><em>Published at NeurIPS 2025</em></p>
+    <p class="proj-desc">Leveraging Large Language Models to automate the generation and verification of SystemVerilog modules for complex hardware design tasks. Developed a comprehensive benchmarking pipeline to evaluate LLM performance in hardware design, featuring built-in automated graders that test LLM-generated modules against testbenches using open-source simulation software. The suite includes a diverse array of tasks varying in complexity and domain-specific requirements, enabling thorough assessment of LLM capabilities across the hardware engineering lifecycle.</p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">RISC-V OS Kernel + Journaling Filesystem + I/O Drivers</span>
+      <span class="proj-date">2025</span>
+    </div>
+    <p class="proj-desc">Developed a full UNIX-style operating system kernel and robust journaling filesystem from scratch for the RISC-V architecture.</p>
+    <ul class="proj-details">
+      <li><strong>Kernel:</strong> Implemented core OS functionalities including a bootloader, trap handling, Sv39 virtual memory with demand paging, and process abstraction. Supports essential user-mode syscalls (open, close, read, write, ioctl, exec, fork, wait, usleep, fscreate, fsdelete). Created cooperative and preemptive threading models using condition variables and timer (mtime) interrupts.</li>
+      <li><strong>Custom Filesystem + Block Cache:</strong> Engineered a block-based filesystem with a write-ahead journal for metadata consistency and crash recovery. Supports create, read, write, delete, flush, and multi-level indirection. Mountable via VirtIO block device or in-memory "memio" for rapid testing. Implemented a write-back cache with configurable associativity, reducing I/O latency by ~45% while ensuring data consistency through the journaling mechanism.</li>
+      <li><strong>Device Drivers &amp; MMIO:</strong> Developed drivers for UART (polling &amp; interrupt-driven), Real-Time Clock (RTC), Platform-Level Interrupt Controller (PLIC), VirtIO block &amp; RNG devices (with custom ISR integration), and GPIO, SPI interfaces for embedded peripherals.</li>
+      <li><strong>Games!</strong> Built a unified I/O interface to load and execute ELF binaries (Star Trek, Doom, Rogue, Zork) on QEMU RISC-V, validated by automated tests for correct loading, execution, and system-call handling.</li>
+    </ul>
+    <div class="proj-links">
+      <a href="https://github.com/nippun-live/riscvos" target="_blank">[GitHub]</a>
+    </div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">System on Chip: 16-bit CPU Core + Graphics Controller</span>
+      <span class="proj-date">2024</span>
+    </div>
+    <p class="proj-desc">Designed and implemented a 16-bit CPU based on a reduced instruction set, x86-inspired ISA in SystemVerilog, end-to-end from ISA specification through FPGA verification.</p>
+    <ul class="proj-details">
+      <li><strong>ISA &amp; Pipeline:</strong> 16-bit processor with Program Counter, Instruction Register, general-purpose registers, ALU, and a 3-stage fetch–decode–execute pipeline supporting ADD, AND, NOT, BR, JMP, JSR, LDR, STR, and PAUSE. FSM control unit sequences memory access, ALU operations, and I/O interactions via a custom <code>cpu_to_io</code> bridge interfacing with on-board switches and hex displays.</li>
+      <li><strong>Memory-Mapped I/O &amp; BRAM:</strong> Mapped UART, switches, and seven-segment displays into the CPU's address space using on-chip Spartan-7 Block RAM, handling read/write timing without an external "ready" signal.</li>
+      <li><strong>Graphics Controller:</strong> Developed an IP-core-based HDMI graphics controller for 80×30 character text rendering over AXI4 on Vivado IP Integrator. Implemented monochrome and color text output using VRAM and font ROM, supporting inverse text and palette-based coloring.</li>
+      <li><strong>FPGA Verified:</strong> Synthesized and achieved timing closure in Vivado, deploying and verifying stable operation at 50 MHz on a Xilinx Spartan-7 board.</li>
+    </ul>
+    <div class="proj-links">
+      <a href="https://github.com/nippun-live/svcpu" target="_blank">[GitHub]</a>
+    </div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">DoorGuardian: Autonomous Security System</span>
+      <span class="proj-date">2023</span>
+    </div>
+    <p class="proj-desc"><em>Contributors: Nippun Sabharwal, Vayun Gupta, Siddarth Natarajan</em></p>
+    <p class="proj-desc">Developed an autonomous security system to modernize access control, replacing traditional key/card-based systems with sensor-triggered visual verification and remote actuation.</p>
+    <ul class="proj-details">
+      <li><strong>Problem:</strong> Campus and home access relying on physical cards or keys creates delays, extra costs, and accessibility barriers.</li>
+      <li><strong>Solution:</strong> An ultrasonic sensor (HC-SR04) detects approaching individuals, triggering an Arduino UNO and OV7670 camera. The captured image streams via UART → PC → Telegram bot. The owner sends "door open" / "door close" over Telegram, and an ESP32 actuates SG90 servo motors to lock or unlock.</li>
+      <li><strong>Tech Stack:</strong> HC-SR04 ultrasonic sensor (50 cm trigger range, power-saving standby), OV7670 camera over UART, Arduino UNO for coordination, ESP32 for Wi-Fi and Telegram API, SG90 servos for actuation, Make.com for workflow automation.</li>
+      <li><strong>Features:</strong> Live video feed for verification, automated entry/exit logs, updatable face database, upgradable firmware. Real-world applications include keyless Airbnb access, ID-free campus entry, and improved accessibility.</li>
+    </ul>
+    <div class="proj-links">
+      <a href="https://github.com/nippun-live/DoorGuardian-Autonomous-Security-System" target="_blank">[GitHub]</a>
+    </div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">PotterMost Platform</span>
+      <span class="proj-date">2018</span>
+    </div>
+    <p class="proj-desc">My first project! Built and scaled a Harry Potter fan community to <strong>12,500+ registered users</strong> and <strong>4,000+ social media followers</strong>. Led and coordinated a team of 30 volunteers to develop quizzes, discussion forums, and engaging content, fostering a highly active online platform.</p>
+    <div class="proj-links">
+      <a href="https://bit.ly/pottermost" target="_blank">[Website]</a>
+    </div>
+  </div>
+
+  <!-- ===== RESEARCH EXPERIENCE ===== -->
+  <h2>Research Experience</h2>
+
+  <div class="exp">
+    <div class="exp-head">
+      <span class="exp-title">National Center for Supercomputing Applications (NCSA)</span>
+      <span class="exp-date">Jan 2025 – Present</span>
+    </div>
+    <div class="exp-role">Computer Vision Researcher, PI: Prof. Narendra Ahuja</div>
+    <ul class="exp-details">
+      <li>Leading research in video restoration using unsupervised, physics-informed deep learning for modeling atmospheric turbulence and fluid dynamics.</li>
+      <li>Integrated Vision Transformers, NeRFs, and 3D Mamba-based architectures with optical flow estimation and 3D geometric scene reconstruction to correct non-rigid distortions in real-world videos.</li>
+      <li>Training on parallel supercomputing clusters with CUDA-accelerated pipelines.</li>
+    </ul>
+  </div>
+
+  <div class="exp">
+    <div class="exp-head">
+      <span class="exp-title">NeurIPS 2025: LLM Engineering Design Benchmark</span>
+      <span class="exp-date">2024 – 2025</span>
+    </div>
+    <div class="exp-role">Researcher, Prof. Bin Hu's group</div>
+    <ul class="exp-details">
+      <li>Pioneered systematic evaluation framework for assessing frontier LLMs on complex hardware design synthesis, benchmarking across hierarchical SystemVerilog tasks.</li>
+      <li>Architected closed-loop agentic system with automated verification pipeline integrating simulation and synthesis tools, enabling iterative refinement through structured error feedback.</li>
+    </ul>
+  </div>
+
+  <!-- ===== INDUSTRY EXPERIENCE ===== -->
+  <h2>Industry Experience</h2>
+
+  <div class="exp">
+    <div class="exp-head">
+      <span class="exp-title">AstraZeneca</span>
+      <span class="exp-date">May – Aug 2025</span>
+    </div>
+    <div class="exp-role">Machine Learning Intern · Gaithersburg, MD</div>
+    <ul class="exp-details">
+      <li>Built an intelligent agent with natural language interface using RAG and LangGraph with MCP framework, querying millions of rows of pharma data in under 10 s.</li>
+      <li>Designed secure, highly available AWS stack (ECS, ALB, WAF, CloudWatch) delivering 99.9% uptime, scaling to 50+ concurrent users.</li>
+      <li>Led cross-functional discovery, built MVP independently, then collaborated with Mexico Data Science team for company-wide rollout.</li>
+    </ul>
+  </div>
+
+  <div class="exp">
+    <div class="exp-head">
+      <span class="exp-title">Mashreq Bank</span>
+      <span class="exp-date">May – Jul 2023</span>
+    </div>
+    <div class="exp-role">Cloud Infrastructure Intern</div>
+    <ul class="exp-details">
+      <li>Developed and optimized RESTful &amp; GraphQL APIs, improving data retrieval speed by 40% and scalability for high-traffic usage.</li>
+      <li>Refined CI/CD pipelines using Jenkins and Docker, reducing deployment time by 50%.</li>
+    </ul>
+  </div>
+
+  <!-- ===== SKILLS ===== -->
+  <h2>Skills</h2>
+  <div class="skills-row"><strong>ML / AI:</strong> PyTorch, TensorFlow, JAX, CUDA, XGBoost, HuggingFace, LangChain, Transformers, NeRFs, Diffusion Models, RL</div>
+  <div class="skills-row"><strong>Vision / Robotics:</strong> OpenCV, Optical Flow, Stereo Vision, 3D Reconstruction, ROS/ROS2, Teleoperation, Imitation Learning, Unity</div>
+  <div class="skills-row"><strong>Systems:</strong> C, C++, RISC-V, SystemVerilog, FPGA/Vivado, Linux Kernel, Device Drivers, QEMU</div>
+  <div class="skills-row"><strong>Infrastructure:</strong> Python, Java, SQL, Docker, Kubernetes, AWS (Bedrock, SageMaker, EC2), Azure, Git, CI/CD</div>
+
+  <!-- ===== EDUCATION ===== -->
+  <h2>Education</h2>
+  <div class="exp">
+    <div class="exp-head">
+      <span class="exp-title">University of Illinois at Urbana-Champaign</span>
+      <span class="exp-date">Aug 2022 – May 2026</span>
+    </div>
+    <div class="exp-role">B.S. Computer Engineering, Grainger College of Engineering</div>
+    <ul class="exp-details">
+      <li><strong>Honors:</strong> Samsung Engineering Scholarship, Illinois Outstanding Scholarship, Illinois Engineering Achievement Scholarship</li>
+      <li><strong>Coursework:</strong> Deep Learning, Parallel Programming, Computer Architecture, Data Structures, Algorithms</li>
+    </ul>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    Nippun Sabharwal · nippuns2@illinois.edu
+  </div>
+
+</div>
 </body>
 </html>
