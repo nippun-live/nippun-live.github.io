@@ -350,19 +350,6 @@
 
   <div class="proj">
     <div class="proj-head">
-      <span class="proj-title">Photorealistic Sim-to-Real via 3D Gaussian Splatting + MuJoCo</span>
-      <span class="proj-date">2025</span>
-    </div>
-    <p class="proj-desc">The visual sim-to-real gap is the biggest bottleneck in scaling robot learning: policies trained on flat-shaded MuJoCo scenes fail against real-world lighting and textures. This project fuses a photorealistic 3D Gaussian Splat of a real lab with MuJoCo physics so robot policies train in an environment that looks real and behaves real, tackling the same visual grounding problem that labs like Physical Intelligence, Google DeepMind, and Toyota Research Institute are racing to solve.</p>
-    <ul class="proj-details">
-      <li><strong>3DGS–Physics Alignment:</strong> ICP registration pipeline aligning a real-world Gaussian Splat capture (iPhone LiDAR + COLMAP) of an ALOHA bimanual setup with its MuJoCo twin, achieving <strong>7.0 mm RMSE</strong> via point-to-plane ICP with Tukey robust loss and adaptive voxel downsampling.</li>
-      <li><strong>Real-Time Composite Rendering:</strong> MuJoCo robot foreground (segmentation mask) + custom NumPy Gaussian rasterizer background at <strong>30–60 FPS</strong> across 7+ viewpoints including wrist cameras.</li>
-      <li><strong>Policy-Ready API:</strong> Observation interface matching the real ALOHA multi-camera topology, outputting dicts compatible with <a href="https://github.com/huggingface/lerobot" target="_blank">LeRobot</a> and OpenPI policy servers for direct sim-to-real transfer.</li>
-    </ul>
-  </div>
-
-  <div class="proj">
-    <div class="proj-head">
       <span class="proj-title">WallE: VR-Based Robot Teleoperation Interface</span>
       <span class="proj-date">2024</span>
     </div>
@@ -386,6 +373,19 @@
     <p style="font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-top: 8px;">
       STL credit: <a href="https://github.com/OpenTeleVision/TeleVision" target="_blank">OpenTeleVision</a>
     </p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">Photorealistic Sim-to-Real via 3D Gaussian Splatting + MuJoCo</span>
+      <span class="proj-date">2025</span>
+    </div>
+    <p class="proj-desc">The visual sim-to-real gap is the biggest bottleneck in scaling robot learning: policies trained on flat-shaded MuJoCo scenes fail against real-world lighting and textures. This project fuses a photorealistic 3D Gaussian Splat of a real lab with MuJoCo physics so robot policies train in an environment that looks real and behaves real, tackling the same visual grounding problem that labs like Physical Intelligence, Google DeepMind, and Toyota Research Institute are racing to solve.</p>
+    <ul class="proj-details">
+      <li><strong>3DGS–Physics Alignment:</strong> ICP registration pipeline aligning a real-world Gaussian Splat capture (iPhone LiDAR + COLMAP) of an ALOHA bimanual setup with its MuJoCo twin, achieving <strong>7.0 mm RMSE</strong> via point-to-plane ICP with Tukey robust loss and adaptive voxel downsampling.</li>
+      <li><strong>Real-Time Composite Rendering:</strong> MuJoCo robot foreground (segmentation mask) + custom NumPy Gaussian rasterizer background at <strong>30–60 FPS</strong> across 7+ viewpoints including wrist cameras.</li>
+      <li><strong>Policy-Ready API:</strong> Observation interface matching the real ALOHA multi-camera topology, outputting dicts compatible with <a href="https://github.com/huggingface/lerobot" target="_blank">LeRobot</a> and OpenPI policy servers for direct sim-to-real transfer.</li>
+    </ul>
   </div>
 
   <div class="proj">
