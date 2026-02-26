@@ -423,6 +423,7 @@
       <li><strong>FP16 Mixed Precision + Tree Reduction:</strong> GPU performance is memory-bandwidth bound: FP16 halves memory footprint, <strong>doubling effective bandwidth</strong> and allowing 2× more data in cache. Modern GPUs (Tensor Cores, FP16 ALUs) also deliver <strong>2× compute throughput</strong> on half-precision ops. Implemented via CUDA intrinsics (<code>__half</code>, <code>__hmul</code>) with 3D thread-block tree reduction over input channels, eliminating serial loops and halving register pressure to enable higher occupancy, the same quantization strategy that makes large-scale training feasible.</li>
       <li><strong>Tiled GEMM (im2col):</strong> Convolution re-cast as matrix multiply; 16×16 shared-memory tiled kernel with unrolled inner loops for near-peak occupancy.</li>
       <li><strong>Streams &amp; Layer-Adaptive Dispatch:</strong> Direct conv for shallow layers, GEMM for deep layers. <strong>10 concurrent CUDA streams</strong> pipelining kernel execution with memory transfers.</li>
+      <li><strong>Nsight-Guided Profiling:</strong> Used NVIDIA Nsight Systems and Nsight Compute to profile warp occupancy, memory throughput, and kernel launch behavior, guiding loop unrolling, tile sizes, and stream placement to remove stalls and reach stable high-utilization runs.</li>
     </ul>
   </div>
 
