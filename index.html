@@ -379,8 +379,8 @@
       <span class="proj-date">2025</span>
     </div>
     <img src="images/3d.png" alt="3D Gaussian Splatting project preview" style="width: 100%; max-width: 820px; border-radius: 10px; margin: 8px 0 14px; display: block;" />
-    <p class="proj-desc">The visual sim-to-real gap is the biggest bottleneck in scaling robot learning: policies trained on flat-shaded MuJoCo scenes fail against real-world lighting and textures. This project fuses a photorealistic 3D Gaussian Splat of a real lab with MuJoCo physics so robot policies train in an environment that looks real and behaves real, tackling the same visual grounding problem that labs like Physical Intelligence, Google DeepMind, and Toyota Research Institute are racing to solve.</p>
     <p class="proj-desc"><em>Contributors:</em> Nippun Sabharwal, Shivansh Patel</p>
+    <p class="proj-desc">The visual sim-to-real gap is the biggest bottleneck in scaling robot learning: policies trained on flat-shaded MuJoCo scenes fail against real-world lighting and textures. This project fuses a photorealistic 3D Gaussian Splat of a real lab with MuJoCo physics so robot policies train in an environment that looks real and behaves real, tackling the same visual grounding problem that labs like Physical Intelligence, Google DeepMind, and Toyota Research Institute are racing to solve.</p>
     <ul class="proj-details">
       <li><strong>3DGS–Physics Alignment:</strong> ICP registration pipeline aligning a real-world Gaussian Splat capture (iPhone LiDAR + COLMAP) of an ALOHA bimanual setup with its MuJoCo twin, achieving <strong>7.0 mm RMSE</strong> via point-to-plane ICP with Tukey robust loss and adaptive voxel downsampling.</li>
       <li><strong>Real-Time Composite Rendering:</strong> MuJoCo robot foreground (segmentation mask) + custom NumPy Gaussian rasterizer background at <strong>30–60 FPS</strong> across 7+ viewpoints including wrist cameras.</li>
