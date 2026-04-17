@@ -378,12 +378,17 @@
       <span class="proj-title">Photorealistic Sim-to-Real via 3D Gaussian Splatting + MuJoCo</span>
       <span class="proj-date">2025</span>
     </div>
+    <img src="images/3d.png" alt="3D Gaussian Splatting project preview" style="width: 100%; max-width: 820px; border-radius: 10px; margin: 8px 0 14px; display: block;" />
     <p class="proj-desc">The visual sim-to-real gap is the biggest bottleneck in scaling robot learning: policies trained on flat-shaded MuJoCo scenes fail against real-world lighting and textures. This project fuses a photorealistic 3D Gaussian Splat of a real lab with MuJoCo physics so robot policies train in an environment that looks real and behaves real, tackling the same visual grounding problem that labs like Physical Intelligence, Google DeepMind, and Toyota Research Institute are racing to solve.</p>
+    <p class="proj-desc"><em>Contributors:</em> Nippun Sabharwal, Shivansh Patel</p>
     <ul class="proj-details">
       <li><strong>3DGS–Physics Alignment:</strong> ICP registration pipeline aligning a real-world Gaussian Splat capture (iPhone LiDAR + COLMAP) of an ALOHA bimanual setup with its MuJoCo twin, achieving <strong>7.0 mm RMSE</strong> via point-to-plane ICP with Tukey robust loss and adaptive voxel downsampling.</li>
       <li><strong>Real-Time Composite Rendering:</strong> MuJoCo robot foreground (segmentation mask) + custom NumPy Gaussian rasterizer background at <strong>30–60 FPS</strong> across 7+ viewpoints including wrist cameras.</li>
       <li><strong>Policy-Ready API:</strong> Observation interface matching the real ALOHA multi-camera topology, outputting dicts compatible with <a href="https://github.com/huggingface/lerobot" target="_blank">LeRobot</a> and OpenPI policy servers for direct sim-to-real transfer.</li>
     </ul>
+    <div class="proj-links">
+      <a href="https://github.com/nippun-live/mujoco_splat" target="_blank">[GitHub]</a>
+    </div>
   </div>
 
   <div class="proj">
@@ -403,7 +408,7 @@
     <p class="proj-desc">Deploying learned policies in the real world requires more than good imitation: it requires robustness to novel states, graceful degradation, and integration with classical perception and control. This project builds the full stack from first principles (URDFs, PD control, 3D vision) through modern imitation learning (DAgger, ResNet18 visuomotor policies), culminating in a Simplex safety architecture that achieves <strong>100% task success</strong> where vision-only (40%) and learned-only (60%) each fail, the kind of hybrid system needed for reliable real-world robot deployment.</p>
     <ul class="proj-details">
       <li><strong>3D Perception:</strong> RGBD → point-cloud deprojection → hand-eye calibration → HSV segmentation → DBSCAN clustering → coarse-to-fine ICP for 6-DOF pose. Multi-view fusion from 5+ cameras enables autonomous pick-and-place with <strong>zero ground-truth state</strong>.</li>
-      <li><strong>Imitation Learning + DAgger:</strong> Trained MLP (state) and ResNet18 (vision) behavioral cloning policies on 20k+ teleoperated demos. DAgger closed the covariate shift gap → <strong>80%+ success</strong> on randomized pick-and-place.</li>
+      <li><strong>Imitation Learning + DAgger:</strong> Trained MLP (state) and ResNet18 (vision) behavioral cloning policies on 2k+ teleoperated demos. DAgger closed the covariate shift gap → <strong>80%+ success</strong> on randomized pick-and-place.</li>
       <li><strong>Simplex Architecture (100% Success):</strong> Vision-based reactive controller (HSV dirt detection → boustrophedon paths) with automatic BC fallback. <strong>97.6% ± 2.0% cleaning, 100% success</strong> vs. 40% vision-only and 60% BC-only on 150-marker contact-rich wiping.</li>
       <li><strong>Classical Foundations:</strong> Custom 8-joint URDF, PD waypoint controllers with SLERP orientation, boustrophedon coverage planners.</li>
     </ul>
