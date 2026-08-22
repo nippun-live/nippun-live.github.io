@@ -499,6 +499,9 @@
       <li><strong>Edge Visual Autonomy:</strong> Integrated an embedded camera with OpenCV and quantized TensorFlow Lite inference for traffic-sign and object recognition, coupling semantic detections to behaviors such as stopping for signs or pedestrians before resuming the planned route.</li>
       <li><strong>Vehicle Telemetry &amp; Control:</strong> Built bidirectional Bluetooth control and telemetry plus a Wi-Fi REST service and Electron interface for remote actuation, sensor monitoring, and vehicle-state visualization.</li>
     </ul>
+    <div class="proj-links">
+      <a href="https://github.com/nippun-live/embedded-autonomy-stack" target="_blank">[GitHub]</a>
+    </div>
   </div>
 
   <div class="proj">
@@ -506,6 +509,7 @@
       <span class="proj-title">Hybrid Robot Learning &amp; Control for Contact-Rich Manipulation</span>
       <span class="proj-date">2025</span>
     </div>
+    <img class="project-media" src="images/simplex.png" alt="Simplex robot-learning system detecting and padding a contact-rich cleaning region" loading="lazy" />
     <p class="proj-desc">Deploying learned policies in the real world requires more than good imitation: it requires robustness to novel states, graceful degradation, and integration with classical perception and control. This project builds the full stack from first principles (URDFs, PD control, 3D vision) through modern imitation learning (DAgger, ResNet18 visuomotor policies), culminating in a Simplex safety architecture that achieves <strong>100% task success</strong> where vision-only (40%) and learned-only (60%) each fail, the kind of hybrid system needed for reliable real-world robot deployment.</p>
     <ul class="proj-details">
       <li><strong>3D Perception:</strong> RGBD → point-cloud deprojection → hand-eye calibration → HSV segmentation → DBSCAN clustering → coarse-to-fine ICP for 6-DOF pose. Multi-view fusion from 5+ cameras enables autonomous pick-and-place with <strong>zero ground-truth state</strong>.</li>
@@ -513,6 +517,9 @@
       <li><strong>Simplex Architecture (100% Success):</strong> Vision-based reactive controller (HSV dirt detection → boustrophedon paths) with automatic BC fallback. <strong>97.6% ± 2.0% cleaning, 100% success</strong> vs. 40% vision-only and 60% BC-only on 150-marker contact-rich wiping.</li>
       <li><strong>Classical Foundations:</strong> Custom 8-joint URDF, PD waypoint controllers with SLERP orientation, boustrophedon coverage planners.</li>
     </ul>
+    <div class="proj-links">
+      <a href="https://github.com/nippun-live/hybrid-robot-learning-control" target="_blank">[GitHub]</a>
+    </div>
   </div>
 
   </div>
