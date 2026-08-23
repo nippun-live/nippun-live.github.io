@@ -510,12 +510,11 @@
       <span class="proj-date">2025</span>
     </div>
     <img class="project-media" src="images/simplex.png" alt="Simplex robot-learning system detecting and padding a contact-rich cleaning region" loading="lazy" />
-    <p class="proj-desc">Deploying learned policies in the real world requires more than good imitation: it requires robustness to novel states, graceful degradation, and integration with classical perception and control. This project builds the full stack from first principles (URDFs, PD control, 3D vision) through modern imitation learning (DAgger, ResNet18 visuomotor policies), culminating in a Simplex safety architecture that achieves <strong>100% task success</strong> where vision-only (40%) and learned-only (60%) each fail, the kind of hybrid system needed for reliable real-world robot deployment.</p>
+    <p class="proj-desc">Built complementary geometric, learned, and hybrid manipulation systems in robosuite: an RGB-D cube-stacking pipeline, state-based and ResNet18 imitation policies, and a Simplex wiping controller combining reactive perception with behavioral-cloning fallback.</p>
     <ul class="proj-details">
-      <li><strong>3D Perception:</strong> RGBD → point-cloud deprojection → hand-eye calibration → HSV segmentation → DBSCAN clustering → coarse-to-fine ICP for 6-DOF pose. Multi-view fusion from 5+ cameras enables autonomous pick-and-place with <strong>zero ground-truth state</strong>.</li>
-      <li><strong>Imitation Learning + DAgger:</strong> Trained MLP (state) and ResNet18 (vision) behavioral cloning policies on 2k+ teleoperated demos. DAgger closed the covariate shift gap → <strong>80%+ success</strong> on randomized pick-and-place.</li>
-      <li><strong>Simplex Architecture (100% Success):</strong> Vision-based reactive controller (HSV dirt detection → boustrophedon paths) with automatic BC fallback. <strong>97.6% ± 2.0% cleaning, 100% success</strong> vs. 40% vision-only and 60% BC-only on 150-marker contact-rich wiping.</li>
-      <li><strong>Classical Foundations:</strong> Custom 8-joint URDF, PD waypoint controllers with SLERP orientation, boustrophedon coverage planners.</li>
+      <li><strong>Geometric Manipulation:</strong> Built an 8-joint URDF and PD waypoint controller with SLERP orientation, then implemented RGB-D segmentation, metric-depth deprojection, world-frame point clouds, adaptive clustering, clearance-aware grasp selection, and staged green&ndash;red&ndash;green stacking without simulator poses entering the control loop.</li>
+      <li><strong>Imitation Learning:</strong> Trained state-based MLP and ResNet18 visuomotor policies on 3,942 state transitions and 5,336 labeled image-action frames, reaching approximately <strong>89% and 95% validation action accuracy</strong>, respectively; implemented interactive DAgger collection for correcting policy-induced failure states.</li>
+      <li><strong>Simplex Hybrid Control:</strong> Combined reactive dirt detection and boustrophedon planning with behavioral-cloning fallback, achieving <strong>97.6% &plusmn; 2.0% coverage and 100% success</strong> across five trials versus <strong>40% vision-only and 20% BC-only</strong>.</li>
     </ul>
     <div class="proj-links">
       <a href="https://github.com/nippun-live/hybrid-robot-learning-control" target="_blank">[GitHub]</a>
@@ -599,14 +598,15 @@
       <span class="proj-title">CUDA CNN Kernel Optimization</span>
       <span class="proj-date">2025</span>
     </div>
-    <p class="proj-desc">Developed and profiled six custom CUDA implementations of a CNN forward pass, systematically improving convolution performance through memory-hierarchy optimization, mixed-precision computation, tiled GEMM, and asynchronous execution.</p>
+    <p class="proj-desc">Implemented 2D convolution from scratch in CUDA, progressing from direct convolution to a shared-memory implicit-GEMM kernel and shape-aware dispatch. Built a scalar CPU oracle and regression suite for arbitrary strides and non-aligned tensor shapes, achieving errors below <strong>1.4 &times; 10<sup>&minus;6</sup></strong> and up to <strong>361 GFLOP/s</strong> on an RTX 3050.</p>
     <ul class="proj-details">
-      <li><strong>Memory Hierarchy:</strong> Weights in <strong>constant memory</strong>, I/O tiles in <strong>shared memory</strong>, register accumulators, achieving order-of-magnitude reduction in global memory traffic.</li>
-      <li><strong>FP16 Mixed Precision + Tree Reduction:</strong> GPU performance is memory-bandwidth bound: FP16 halves memory footprint, <strong>doubling effective bandwidth</strong> and allowing 2× more data in cache. Modern GPUs (Tensor Cores, FP16 ALUs) also deliver <strong>2× compute throughput</strong> on half-precision ops. Implemented via CUDA intrinsics (<code>__half</code>, <code>__hmul</code>) with 3D thread-block tree reduction over input channels, eliminating serial loops and halving register pressure to enable higher occupancy, the same quantization strategy that makes large-scale training feasible.</li>
-      <li><strong>Tiled GEMM (im2col):</strong> Convolution re-cast as matrix multiply; 16×16 shared-memory tiled kernel with unrolled inner loops for near-peak occupancy.</li>
-      <li><strong>Streams &amp; Layer-Adaptive Dispatch:</strong> Direct conv for shallow layers, GEMM for deep layers. <strong>10 concurrent CUDA streams</strong> pipelining kernel execution with memory transfers.</li>
-      <li><strong>Nsight-Guided Profiling:</strong> Used NVIDIA Nsight Systems and Nsight Compute to profile warp occupancy, memory throughput, and kernel launch behavior, guiding loop unrolling, tile sizes, and stream placement to remove stalls and reach stable high-utilization runs.</li>
+      <li><strong>Kernel Design:</strong> Implemented direct NCHW convolution with one thread per output, register accumulation, and constant-memory filter reuse, then recast convolution as a <strong>16 &times; 16 shared-memory implicit GEMM</strong> that generates im2col coordinates without materializing the expanded matrix.</li>
+      <li><strong>Benchmarking &amp; Correctness:</strong> Built repeatable shape sweeps with CUDA-event and end-to-end timing, validating rectangular, strided, and non-tile-aligned workloads against an optimized CPU oracle. The tiled kernel reached <strong>360.8 GFLOP/s and 1.68&times; the direct CUDA baseline</strong>.</li>
+      <li><strong>Optimization Study:</strong> Evaluated FP16 accumulation, channel-parallel tree reduction, tile sizing, and multi-stream batch slicing; documented why na&iuml;ve conversion did not reduce global-memory traffic and why synchronization, launch limits, and tail handling outweighed theoretical gains in rejected variants.</li>
     </ul>
+    <div class="proj-links">
+      <a href="https://github.com/nippun-live/cuda-convolution-optimization" target="_blank">[GitHub]</a>
+    </div>
   </div>
 
   <div class="proj">
