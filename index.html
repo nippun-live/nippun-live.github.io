@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nippun Sabharwal</title>
-  <meta name="description" content="Nippun Sabharwal, Computer Engineering @ UIUC. AI/ML, computer vision, and robotics researcher. Published at NeurIPS 2025." />
-  <meta name="keywords" content="Nippun Sabharwal, AI, ML, computer vision, robotics, UIUC, NeurIPS, research" />
+  <meta name="description" content="Nippun Sabharwal is a graduate student at Carnegie Mellon University's Robotics Institute working on robot learning, world models, 3D perception, and efficient systems for embodied agents." />
+  <meta name="keywords" content="Nippun Sabharwal, robot learning, world models, computer vision, robotics, Carnegie Mellon, NeurIPS, research" />
   <meta property="og:title" content="Nippun Sabharwal" />
-  <meta property="og:description" content="Computer Engineering @ UIUC. AI/ML, computer vision, and robotics researcher. Published at NeurIPS 2025." />
+  <meta property="og:description" content="Graduate student at Carnegie Mellon University's Robotics Institute working on robot learning, world models, 3D perception, and efficient embodied-AI systems." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="images/pfp.jpg" />
 
@@ -342,6 +342,25 @@
     .proj-links a { margin-right: 12px; font-weight: 500; }
     .project-actions .proj-links a:last-child { margin-right: 0; }
 
+    .earlier-projects {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .earlier-projects > summary {
+      width: fit-content;
+      cursor: pointer;
+      color: var(--link);
+      font-size: 0.84rem;
+      font-weight: 500;
+    }
+    .earlier-projects > summary:hover { text-decoration: underline; }
+    .earlier-projects > summary:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 2px;
+    }
+    .earlier-project-list { margin-top: 4px; }
+    .earlier-project-list .proj:last-child { border-bottom: 0; }
+
     .video-inline {
       margin: 10px 0;
       width: 100%;
@@ -411,8 +430,8 @@
 <div class="container">
 
   <!-- ===== HEADER ===== -->
-  <div class="header">
-    <img src="images/pfp.jpg" alt="Nippun Sabharwal" class="header-pic" />
+  <header class="header">
+    <img src="images/pfp.jpg" alt="Nippun Sabharwal" class="header-pic" width="130" height="130" />
     <div class="header-info">
       <h1>Nippun Sabharwal</h1>
       <p class="affiliation">Robotics Institute · Carnegie Mellon University</p>
@@ -423,11 +442,13 @@
         <li><a href="https://scholar.google.com/citations?user=PHsvV0wAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
       </ul>
     </div>
-  </div>
+  </header>
+
+  <main id="main-content">
 
   <!-- ===== BIO ===== -->
   <p class="bio">
-    I am a graduate student at the <strong>Robotics Institute</strong> in Carnegie Mellon University's <strong>School of Computer Science</strong>, where I work with <a href="https://scholar.google.com/citations?user=Lsr_-hsAAAAJ&amp;hl=en" target="_blank"><strong>Prof. Nancy Pollard</strong></a>. Previously, I conducted vision research at the <strong>National Center for Supercomputing Applications</strong> with <a href="https://scholar.google.com/citations?user=dY7OSl0AAAAJ&amp;hl=en" target="_blank"><strong>Prof. Narendra Ahuja</strong></a>. I've also worked on <strong>world models and humanoid control in industry</strong> and published at <strong>NeurIPS 2025</strong>. My interests span <strong>robot learning</strong> (world models, imitation learning, teleoperation), <strong>computer vision</strong> (3D reconstruction, physics-informed restoration, NeRFs), and <strong>AI systems</strong> (LLM agents, SLAM, CUDA optimization).
+    I am a graduate student at the <strong>Robotics Institute</strong> in Carnegie Mellon University's <strong>School of Computer Science</strong>, where I work with <a href="https://scholar.google.com/citations?user=Lsr_-hsAAAAJ&amp;hl=en" target="_blank"><strong>Prof. Nancy Pollard</strong></a>. Previously, I conducted vision research at the <strong>National Center for Supercomputing Applications</strong> with <a href="https://scholar.google.com/citations?user=dY7OSl0AAAAJ&amp;hl=en" target="_blank"><strong>Prof. Narendra Ahuja</strong></a>. I have also worked on <strong>world models, humanoid control, and embedded autonomy in industry</strong> and co-authored a paper at <strong>NeurIPS 2025</strong>. My interests span <strong>robot learning</strong> (world models, imitation learning, visuomotor policies), <strong>computer vision</strong> (3D perception, neural rendering, physics-informed restoration), and <strong>robotics systems</strong> (simulation, teleoperation, autonomy, CUDA acceleration).
   </p>
 
   <!-- ===== NEWS ===== -->
@@ -532,7 +553,7 @@
     </div>
     <img class="project-media" src="images/3d.png" alt="3D Gaussian Splatting project preview" loading="lazy" />
     <p class="proj-desc"><em>Contributors:</em> Nippun Sabharwal, Shivansh Patel</p>
-    <p class="proj-desc">The visual sim-to-real gap is the biggest bottleneck in scaling robot learning: policies trained on flat-shaded MuJoCo scenes fail against real-world lighting and textures. This project fuses a photorealistic 3D Gaussian Splat of a real lab with MuJoCo physics so robot policies train in an environment that looks real and behaves real, tackling the same visual grounding problem that labs like Physical Intelligence, Google DeepMind, and Toyota Research Institute are racing to solve.</p>
+    <p class="proj-desc">Aligned a photorealistic 3D Gaussian Splat of a real ALOHA workspace with its MuJoCo twin, creating a shared coordinate frame for physically grounded rendering, simulation, and policy-facing multi-camera observations.</p>
     <ul class="proj-details">
       <li><strong>3DGS–Physics Alignment:</strong> ICP registration pipeline aligning a real-world Gaussian Splat capture (iPhone LiDAR + COLMAP) of an ALOHA bimanual setup with its MuJoCo twin, achieving <strong>7.0 mm RMSE</strong> via point-to-plane ICP with Tukey robust loss and adaptive voxel downsampling.</li>
       <li><strong>Real-Time Composite Rendering:</strong> MuJoCo robot foreground (segmentation mask) + custom NumPy Gaussian rasterizer background at <strong>30–60 FPS</strong> across 7+ viewpoints including wrist cameras.</li>
@@ -540,6 +561,25 @@
     </ul>
     <div class="proj-links">
       <a href="https://github.com/nippun-live/mujoco_splat" target="_blank">[GitHub]</a>
+    </div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-title">Markerless 6-DoF RGB-D Pose Tracking</span>
+      <span class="proj-date">2026</span>
+    </div>
+    <img class="project-media" src="images/pose-tracking.gif" alt="Markerless RGB-D tracking overlay showing the estimated 6-DoF pose of a handheld plug" loading="lazy" width="640" height="360" />
+    <p class="proj-desc">Built a markerless 6-DoF plug-pose tracking pipeline from Intel RealSense RGB-D recordings and a CAD model, combining SAM2 segmentation, masked-depth point clouds, multiscale ICP, and calibrated pose-frame correction.</p>
+    <ul class="proj-details">
+      <li><strong>Perception Pipeline:</strong> Separated SAM2-based 2D object tracking from metric 3D estimation using depth deprojection, STL registration, and multiscale ICP.</li>
+      <li><strong>Held-Out Evaluation:</strong> Calibrated the pose-frame correction on 60% of ArUco-visible frames and evaluated on the held-out 40%, reaching <strong>4.40 mm mean translation error</strong> and <strong>11.98&deg; mean rotation error</strong>.</li>
+      <li><strong>Diagnostics:</strong> Produced per-frame overlays, pose trajectories, and failure analysis for partial geometry, mask contamination, symmetry, and tracking drift.</li>
+    </ul>
+    <div class="proj-links" aria-label="Markerless pose-tracking project links">
+      <a href="https://github.com/nippun-live/pose" target="_blank">[GitHub]</a>
+      <a href="https://github.com/nippun-live/pose#6-calibrate-fixed-pose-frame-correction" target="_blank">[Methodology]</a>
+      <a href="https://github.com/nippun-live/pose/blob/main/EXPERIMENT_LOG.md" target="_blank">[Experiment Log]</a>
     </div>
   </div>
 
@@ -664,6 +704,10 @@
     </div>
   </div>
 
+  <details class="earlier-projects">
+  <summary>Earlier Projects</summary>
+  <div class="earlier-project-list">
+
   <div class="proj">
     <div class="proj-head">
       <span class="proj-title">DoorGuardian: Autonomous Security System</span>
@@ -695,6 +739,9 @@
   </div>
 
   </div>
+  </details>
+
+  </div>
   <!-- ===== INDUSTRY EXPERIENCE ===== -->
   <h2>Industry Experience</h2>
 
@@ -704,12 +751,11 @@
       <span class="exp-date">Jun &ndash; Aug 2026</span>
     </div>
     <div class="exp-role">Embedded Systems Software Intern</div>
-    <p class="exp-summary">Built scalable evaluation infrastructure for long-duration camera/ADAS and vehicle-hardware validation, transforming multi-signal telemetry into reproducible validation campaigns, automated robustness verdicts, and actionable failure diagnoses.</p>
+    <p class="exp-summary">Built long-horizon evaluation infrastructure for camera/ADAS and vehicle-hardware validation, transforming multi-signal telemetry into reproducible campaigns, automated robustness verdicts, and traceable failure diagnoses.</p>
     <ul class="exp-details">
-      <li><strong>Autonomy Evaluation Platform:</strong> Re-architected fragmented ECU-specific workflows into an extensible validation-as-code engine with per-platform schema and payload adapters, versioned signal specifications, GitLab CI/CD, and automated pass/warn/fail verdicts across camera, ADAS, connectivity, audio, and thermal systems.</li>
-      <li><strong>Long-Horizon Data Infrastructure:</strong> Built 1 Hz telemetry logging, ingestion, and temporal-evaluation pipelines spanning three ECU board families and 18&ndash;21 hardware units, supporting 300+ hour validation campaigns and recurring 20-hour hardware-bench stress tests.</li>
-      <li><strong>Robustness and Failure Attribution:</strong> Correlated camera/ADAS failures with neighboring cycles, power-state transitions, CAN behavior, and related subsystems to distinguish transient anomalies, persistent regressions, and cross-system faults across firmware and hardware variants.</li>
-      <li><strong>Agent-Assisted Evaluation:</strong> Combined deterministic evaluators with an evidence-grounded agent that retrieved supporting telemetry, summarized anomalies, suggested likely root causes, and generated traceable engineering handoffs, reducing initial triage to under 10 minutes.</li>
+      <li><strong>Validation Platform:</strong> Made fragmented ECU-specific workflows hardware-agnostic through extensible schema and payload adapters, versioned signal specifications, GitLab CI/CD, and automated pass/warn/fail verdicts.</li>
+      <li><strong>Long-Horizon Telemetry:</strong> Built 1 Hz logging, ingestion, and temporal evaluation across three hardware families and 18&ndash;21 units, supporting 300+ hour campaigns and recurring 20-hour stress tests.</li>
+      <li><strong>Failure Attribution:</strong> Correlated camera/ADAS failures with CAN behavior, power transitions, adjacent cycles, and related subsystems; paired deterministic diagnostics with grounded agent-assisted triage to reduce initial investigation to under 10 minutes.</li>
     </ul>
   </div>
 
@@ -767,14 +813,20 @@
     </ul>
   </div>
 
+  </main>
+
   <!-- ===== FOOTER ===== -->
-  <div class="footer">
+  <footer class="footer">
     Nippun Sabharwal · nippuns@cmu.edu
-  </div>
+  </footer>
 
 </div>
 <script>
   document.documentElement.classList.add('projects-enhanced');
+
+  document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+    link.rel = 'noopener noreferrer';
+  });
 
   const projectNav = document.querySelector('.project-index');
   const categoryOrder = ['computer-vision', 'robot-learning', 'systems'];
