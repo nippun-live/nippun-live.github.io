@@ -448,18 +448,18 @@
 
   <!-- ===== BIO ===== -->
   <p class="bio">
-    I am a graduate student at the <strong>Robotics Institute</strong> in Carnegie Mellon University's <strong>School of Computer Science</strong>, where I work with <a href="https://scholar.google.com/citations?user=Lsr_-hsAAAAJ&amp;hl=en" target="_blank"><strong>Prof. Nancy Pollard</strong></a>. Previously, I conducted vision research at the <strong>National Center for Supercomputing Applications</strong> with <a href="https://scholar.google.com/citations?user=dY7OSl0AAAAJ&amp;hl=en" target="_blank"><strong>Prof. Narendra Ahuja</strong></a>. I have also worked on <strong>world models, humanoid control, and embedded autonomy in industry</strong> and co-authored a paper at <strong>NeurIPS 2025</strong>. My interests span <strong>robot learning</strong> (world models, imitation learning, visuomotor policies), <strong>computer vision</strong> (3D perception, neural rendering, physics-informed restoration), and <strong>robotics systems</strong> (simulation, teleoperation, autonomy, CUDA acceleration).
+    I am a graduate student at the <strong>Robotics Institute</strong> in Carnegie Mellon University's School of Computer Science, where I work with <a href="https://scholar.google.com/citations?user=Lsr_-hsAAAAJ&amp;hl=en" target="_blank">Prof. Nancy Pollard</a>. Previously, I conducted vision research at the National Center for Supercomputing Applications with <a href="https://scholar.google.com/citations?user=dY7OSl0AAAAJ&amp;hl=en" target="_blank">Prof. Narendra Ahuja</a> and co-authored a paper at NeurIPS 2025. My interests span <strong>robot learning</strong> (world models, imitation learning, contact-rich manipulation), <strong>computer vision</strong> (3D perception, neural rendering), and <strong>robotics systems</strong> (simulation, teleoperation, CUDA). In industry, I have built autonomy and embedded-systems infrastructure at <strong>Rivian and Volkswagen Group Technologies</strong> and agentic AI systems at <strong>AstraZeneca</strong>.
   </p>
 
   <!-- ===== NEWS ===== -->
   <h2>News</h2>
   <ul class="news-list">
     <li><span class="news-date">Aug 2026</span> <span>Started graduate study at Carnegie Mellon University's <strong>Robotics Institute</strong>, working with <a href="https://scholar.google.com/citations?user=Lsr_-hsAAAAJ&amp;hl=en" target="_blank">Prof. Nancy Pollard</a></span></li>
-    <li><span class="news-date">Jun 2026</span> <span>Joined <strong>Rivian and Volkswagen Group Technologies</strong> as an Embedded Systems Software Intern, building long-horizon camera/ADAS validation and telemetry infrastructure</span></li>
+    <li><span class="news-date">Jun 2026</span> <span>Joined <strong>Rivian and Volkswagen Group Technologies</strong> as an Embedded Systems Software Intern, building validation infrastructure for telemetry from autonomy and infotainment ECUs</span></li>
     <li><span class="news-date">Sep 2025</span> <span>Paper accepted at <strong>NeurIPS 2025</strong>: "Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs"</span></li>
     <li><span class="news-date">May 2025</span> <span>Started as <strong>ML Intern at AstraZeneca</strong>, built RAG agents for large-scale pharma data access</span></li>
-    <li><span class="news-date">Jan 2025</span> <span>Started as <strong>Computer Vision Researcher at NCSA and CSL</strong> with <a href="https://scholar.google.com/citations?user=dY7OSl0AAAAJ&hl=en" target="_blank">Prof. Narendra Ahuja</a>, atmospheric turbulence restoration with physics-informed deep learning</span></li>
-    <li><span class="news-date">2024</span> <span>Awarded <strong>Samsung Engineering Scholarship</strong>, <strong>Illinois Outstanding Scholarship</strong>, and <strong>Illinois Engg Achievement Scholarship</strong></span></li>
+    <li><span class="news-date">Jan 2025</span> <span>Started as <strong>Computer Vision Researcher at NCSA and CSL</strong> with <a href="https://scholar.google.com/citations?user=dY7OSl0AAAAJ&hl=en" target="_blank">Prof. Narendra Ahuja</a>, refractive turbulence restoration with physics-informed deep learning</span></li>
+    <li><span class="news-date">2024</span> <span>Awarded the <strong>Samsung Engineering Scholarship</strong>, <strong>Illinois Outstanding Scholarship</strong>, <strong>Illinois Engineering Achievement Scholarship</strong>, and <strong>Compall Family Scholarship</strong></span></li>
   </ul>
 
   <!-- ===== PUBLICATIONS ===== -->
@@ -590,10 +590,10 @@
     <p class="proj-desc">At NCSA and CSL, developed Wave2Plane as part of a broader investigation into physics-informed recovery of scenes degraded by refractive turbulence. The framework combines simulator-grounded supervision, spatiotemporal geometry estimation, and multi-frame optimization to reconstruct planar underwater scenes without paired real-world ground truth.</p>
     <img class="project-media" src="images/wave2plane.png" alt="Wave2Plane pipeline recovering clean planar appearance and water-surface geometry from refracted video" loading="lazy" />
     <ul class="proj-details">
-      <li><strong>Physics-Grounded Simulation:</strong> Built a spectral wave simulator with surface-slope estimation, Snell-law ray tracing, and subpixel image warping, generating clean-texture, slope, and warp ground truth while establishing oracle performance ceilings and noise budgets.</li>
-      <li><strong>Modular Spatiotemporal Inference:</strong> Built multi-head 3D CNN (or ViT) models with NeRF-style positional encodings over local 31 &times; 31 &times; 9 video cuboids for joint per-pixel flatness, directional slope, and refractive-warp prediction, achieving <strong>under 0.5&deg; mean absolute slope error</strong>. Trained and evaluated model variants on CUDA-accelerated NCSA clusters.</li>
-      <li><strong>Dense Scene Recovery:</strong> Evaluated every pixel across candidate frames and stitched the locally least-distorted observations into a reconstructed image, reaching <strong>up to 32 dB PSNR</strong> across synthetic benchmarks and validating recovery on real turbulent-water videos.</li>
-      <li><strong>Global Physics Consistency:</strong> Developed test-time restoration objectives based on splat-buffer variance and clean-image/coordinate reprojection, enforcing cross-frame geometric agreement without clean targets and improving reconstruction by an additional <strong>2&ndash;3 dB PSNR</strong>.</li>
+      <li><strong>Physics-Grounded Simulation:</strong> Built a spectral wave simulator with 3D surface geometry, Snell-law ray tracing, and subpixel warping to generate clean-image, slope, and optical-warp supervision.</li>
+      <li><strong>Monocular 3D Geometry Estimation:</strong> Trained multi-head 3D CNN and ViT models to infer per-pixel surface orientation, refractive displacement, and flatness from a single RGB video, achieving <strong>under 0.5&deg; slope MAE</strong>.</li>
+      <li><strong>Multi-Frame Scene Reconstruction:</strong> Reprojected and fused complementary observations into a shared planar coordinate frame, recovering clean scene appearance at <strong>up to 32 dB PSNR</strong> without stereo or depth sensors.</li>
+      <li><strong>Global Geometric Optimization:</strong> Enforced cross-frame consistency through splat-buffer and clean-image reprojection objectives, improving reconstruction by an additional <strong>2&ndash;3 dB</strong> without clean test-time targets.</li>
     </ul>
     <div class="proj-links">
       <a href="docs/wave2plane-poster.pdf" target="_blank">[Poster]</a>
@@ -784,9 +784,9 @@
 
   <!-- ===== SKILLS ===== -->
   <h2>Skills</h2>
-  <div class="skills-row"><strong>ML / AI:</strong> PyTorch, TensorFlow, JAX, CUDA, XGBoost, HuggingFace, LangChain, Transformers, NeRFs, Diffusion Models, RL</div>
-  <div class="skills-row"><strong>Vision / Robotics:</strong> OpenCV, Optical Flow, Stereo Vision, 3D Reconstruction, ROS/ROS2, Teleoperation, Imitation Learning, Unity</div>
-  <div class="skills-row"><strong>Systems:</strong> C, C++, RISC-V, SystemVerilog, FPGA/Vivado, Linux Kernel, Device Drivers, QEMU</div>
+  <div class="skills-row"><strong>ML / AI:</strong> PyTorch, TensorFlow, JAX, Transformers, diffusion and flow matching, world models, imitation learning, reinforcement learning, Hugging Face</div>
+  <div class="skills-row"><strong>Vision / Robotics:</strong> MuJoCo, LeRobot, ROS/ROS2, OpenCV, 3D Gaussian Splatting, COLMAP, NeRFs, RGB-D perception, teleoperation, Unity</div>
+  <div class="skills-row"><strong>Systems:</strong> C, C++, CUDA, RISC-V, SystemVerilog, FPGA/Vivado, Linux Kernel, Device Drivers, QEMU</div>
   <div class="skills-row"><strong>Infrastructure:</strong> Python, Java, SQL, Docker, Kubernetes, AWS (Bedrock, SageMaker, EC2), Azure, Git, CI/CD</div>
 
   <!-- ===== EDUCATION ===== -->
@@ -806,7 +806,7 @@
     </div>
     <div class="exp-role">B.S. Computer Engineering, Grainger College of Engineering</div>
     <ul class="exp-details">
-      <li><strong>Honors:</strong> Samsung Engineering Scholarship, Illinois Outstanding Scholarship, Illinois Engineering Achievement Scholarship</li>
+      <li><strong>Honors:</strong> Samsung Engineering Scholarship, Illinois Outstanding Scholarship, Illinois Engineering Achievement Scholarship, Compall Family Scholarship</li>
       <li><strong>Coursework:</strong> Deep Learning, Parallel Programming, Computer Architecture, Data Structures, Algorithms</li>
     </ul>
   </div>
